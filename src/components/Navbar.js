@@ -64,8 +64,8 @@ const Navbar = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/products/woman" className="flex">
-                    WOMAN
+                  <Link href="/products/women" className="flex">
+                    WOMEN
                     <Image
                       className="invert"
                       src="/downArrow.svg"

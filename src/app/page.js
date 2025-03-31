@@ -1,7 +1,11 @@
+"use client";
 import Link from "next/link";
 import Image from "next/image";
+import ShaderImg from "@/components/ShaderImg";
+
 
 export default function Home() {
+
   return (
     <div className="home-page-container">
       <div className="grid-bg">
@@ -50,22 +54,7 @@ export default function Home() {
             <p>APPAREL</p>
             <p>GRAPHIC</p>
           </div>
-          <Image
-            className="hero-center-image "
-            src="/image/hero-section.png"
-            alt="colab"
-            width={800}
-            height={400}
-            priority
-          />
-          <Image
-            className="hero-center-image image-back"
-            src="/image/hero-section.png"
-            alt="colab"
-            width={800}
-            height={400}
-            priority
-          />
+          <ShaderImg imgUrl={"/image/hero-section.png"} />
         </div>
         <div className="hero-grid-3"></div>
         <div className="hero-grid-4"></div>

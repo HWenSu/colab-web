@@ -6,12 +6,12 @@ const categoryList = [
   {
     name: "MEN'S",
     imgUrl: "/image/category-men.png",
-    linkUrl: "/products/man",
+    linkUrl: "/products/men",
   },
   {
-    name: "WOMAN'S",
+    name: "WOMEN'S",
     imgUrl: "/image/category-woman.png",
-    linkUrl: "/products/woman",
+    linkUrl: "/products/women",
   },
   {
     name: "PRINT & EMB",

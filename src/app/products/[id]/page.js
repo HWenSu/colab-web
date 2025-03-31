@@ -1,5 +1,5 @@
 "use client"
-import {use, useState} from 'react'
+import {use, useState, useEffect} from 'react'
 import Image from "next/image";
 import APIFetcher from "@/components/APIFetcher";
 import ImageCarousel from '@/components/ImageCarousel';
@@ -20,6 +20,7 @@ export default function ProductPage({ params }) {
     setIsImgOpen(false);
   }
 
+  
   return (
     <div>
       <APIFetcher url={"/data/productData.json"}>
@@ -33,6 +34,7 @@ export default function ProductPage({ params }) {
           return (
             firstImage && (
               <div className="product-info-page">
+                {/* 圖片區塊 */}
                 <section className="image-section">
                   <div
                     className="img-container product-big-image"
@@ -60,43 +62,54 @@ export default function ProductPage({ params }) {
                         />
                       </div>
                     ))}
+                    <video
+                      src={product.video}
+                      controls
+                      autoPlay
+                      muted
+                      loop
+                      className="w-full col-span-2"
+                    />
                   </div>
                 </section>
+                {/* 文字區塊 */}
                 <section className="info-section">
-                  <h2>{product.name.toUpperCase()}</h2>
-                  <h3>STYLE NO // {product.style_no.toUpperCase()}</h3>
-                  <p>{product.description.toUpperCase()}</p>
-                  <ul className="info-list-container">
-                    <li>
-                      <h4>MATERIAL - </h4>
-                      <p>{product.material.toUpperCase()}</p>
-                    </li>
-                    <li>
-                      <h4>CONSTRUCTURE - </h4>
-                      <p>{product.constructure.toUpperCase()}</p>
-                    </li>
-                    <li>
-                      <h4>FABRIC NO. - </h4>
-                      <p>{product.fabric_no.toUpperCase()}</p>
-                    </li>
-                    <li>
-                      <h4>FEATURE - </h4>
-                      {product.feature.map((item, index) => (
-                        <p key={`${item}-${index}`}>{item.toUpperCase()}</p>
-                      ))}
-                    </li>
-                    <li>
-                      <h4>FUNCTION - </h4>
-                      {product.function.map((item, index) => (
-                        <p key={`${item}-${index}`}>{item.toUpperCase()}</p>
-                      ))}
-                    </li>
-                    <li>
-                      <h4>SIZE - </h4>
-                      <p>{product.size.toUpperCase()}</p>
-                    </li>
-                  </ul>
+                 
+                    <h2>{product.name.toUpperCase()}</h2>
+                    <h3>STYLE NO // {product.style_no.toUpperCase()}</h3>
+                    <p>{product.description.toUpperCase()}</p>
+                    <ul className="info-list-container">
+                      <li>
+                        <h4>MATERIAL - </h4>
+                        <p>{product.material.toUpperCase()}</p>
+                      </li>
+                      <li>
+                        <h4>CONSTRUCTURE - </h4>
+                        <p>{product.constructure.toUpperCase()}</p>
+                      </li>
+                      <li>
+                        <h4>FABRIC NO. - </h4>
+                        <p>{product.fabric_no.toUpperCase()}</p>
+                      </li>
+                      <li>
+                        <h4>FEATURE - </h4>
+                        {product.feature.map((item, index) => (
+                          <p key={`${item}-${index}`}>{item.toUpperCase()}</p>
+                        ))}
+                      </li>
+                      <li>
+                        <h4>FUNCTION - </h4>
+                        {product.function.map((item, index) => (
+                          <p key={`${item}-${index}`}>{item.toUpperCase()}</p>
+                        ))}
+                      </li>
+                      <li>
+                        <h4>SIZE - </h4>
+                        <p>{product.size.toUpperCase()}</p>
+                      </li>
+                    </ul>
                 </section>
+                {/* 點擊圖片彈出輪播圖 */}
                 {isImgOpen && (
                   <ImageCarousel
                     images={product.image}

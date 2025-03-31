@@ -5,6 +5,8 @@ const ProductCard = ({ product }) => {
   const firstImage = product.image[0]
   const productName = product.name.toUpperCase();
   const constructure = product.constructure.toUpperCase();
+  const description = product.description.toUpperCase();
+
 
   return (
     <li className="product-card">
@@ -23,6 +25,9 @@ const ProductCard = ({ product }) => {
             <h3>{productName}</h3> // {product.style_no}
           </div>
           <p>{constructure}</p>
+        </div>
+        <div className="description">
+          <p>{description}</p>
         </div>
       </Link>
     </li>

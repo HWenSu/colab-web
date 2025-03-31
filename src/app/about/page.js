@@ -1,25 +1,13 @@
+"use client";
+
 import Image from "next/image";
+import ShaderImg from "@/components/ShaderImg";
 
 const page = () => {
   return (
     <div className="about-page-container">
       <section className="about-design-section">
-        <Image
-          className="about-design-bg-img bg-position"
-          src="/image/about-bg.png"
-          alt="colab garment"
-          width={1200}
-          height={400}
-          priority
-        />
-        <Image
-          className="about-design-bg-img"
-          src="/image/about.png"
-          alt="background image"
-          width={700}
-          height={400}
-          priority
-        />
+        <ShaderImg imgUrl={"/image/about.png"} />
         <div className="about-items-container">
           <div className="about-item">
             <Image
@@ -39,15 +27,17 @@ const page = () => {
               width={20}
               height={10}
             />
-            <h3 className="about-large-w about-item-right text-secondary">WHAT WE CAN DO ?</h3>
+            <h3 className="about-large-w about-item-right text-secondary">
+              WHAT WE CAN DO ?
+            </h3>
           </div>
           <div className="about-item">
             <h2 className="about-item-center">FENC</h2>
             <div className="about-large-w about-item-right">
               <h3>CREATE</h3>
               <p>
-                2 SEASON IN 1 YEAR OVER 100 STYLES NEW SEASONAL SAMPLES
-                SHOWCASE DESIGN CONCEPT SHARING
+                2 SEASON IN 1 YEAR OVER 100 STYLES NEW SEASONAL SAMPLES SHOWCASE
+                DESIGN CONCEPT SHARING
               </p>
             </div>
           </div>
@@ -77,6 +67,6 @@ const page = () => {
       <section className="h-screen"></section>
     </div>
   );
-}
+};
 
-export default page
+export default page;

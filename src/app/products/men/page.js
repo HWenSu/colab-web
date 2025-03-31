@@ -12,8 +12,6 @@ const page = () => {
            const manProducts = products.filter(
              (product) => product.category.toLowerCase() === "men"
            );
-           console.log(manProducts)
-          console.log(products);
            return (
              <ul className="products-list-container">
                {manProducts &&
