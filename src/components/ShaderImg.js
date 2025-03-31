@@ -46,7 +46,7 @@ const ShaderImg = ({ imgUrl }) => {
           vec4 colorR = texture2D(u_texture, uv + vec2(strength * u_aberrationIntensity * 0.01, 0.0));
           vec4 colorG = texture2D(u_texture, uv);
           vec4 colorB = texture2D(u_texture, uv - vec2(strength * u_aberrationIntensity * 0.01, 0.0));
-          gl_FragColor = vec4(colorR.r, colorG.g, colorB.b, 1.0);
+          gl_FragColor = vec4(colorR.r, colorG.g, colorB.b, colorG.a);
         }
       `;
 
@@ -54,18 +54,11 @@ const ShaderImg = ({ imgUrl }) => {
       scene = new THREE.Scene();
       camera = new THREE.PerspectiveCamera(
         80,
-        imageElement.naturalWidth / imageElement.naturalHeight,
+        imageElement.offsetWidth / imageElement.offsetHeight,
         0.01,
         10
       );
       camera.position.z = 1;
-
-      // 根據圖片寬高比調整 PlaneGeometry
-      const aspectRatio =
-        imageElement.naturalWidth / imageElement.naturalHeight;
-      const planeWidth = 2; // 基本寬度
-      const planeHeight = planeWidth / aspectRatio; // 根據寬高比計算高度
-      const geometry = new THREE.PlaneGeometry(planeWidth, planeHeight);
 
       const shaderUniforms = {
         u_mouse: { value: new THREE.Vector2() },
@@ -75,7 +68,7 @@ const ShaderImg = ({ imgUrl }) => {
       };
 
       planeMesh = new THREE.Mesh(
-        geometry,
+        new THREE.PlaneGeometry(2, 2),
         new THREE.ShaderMaterial({
           uniforms: shaderUniforms,
           vertexShader,
@@ -91,13 +84,10 @@ const ShaderImg = ({ imgUrl }) => {
         canvas: canvasRef.current,
         alpha: true,
         premultipliedAlpha: false,
-        preserveDrawingBuffer: true,
       });
-      // 使用圖片的原始尺寸設定渲染器
-      renderer.setSize(imageElement.naturalWidth, imageElement.naturalHeight);
+      renderer.setSize(imageElement.offsetWidth, imageElement.offsetHeight);
       renderer.setClearColor(0x000000, 0);
       renderer.outputColorSpace = THREE.SRGBColorSpace;
-      renderer.autoClear = false;
     }
 
     function animateScene() {

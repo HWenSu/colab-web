@@ -164,6 +164,7 @@
   @apply w-[700] h-[700] absolute top-[8rem] left-1/2 -translate-x-1/2 bg-transparent;
 }
 
+.image-container img,
 .image-container canvas {
   position: absolute;
   inset: 0;
