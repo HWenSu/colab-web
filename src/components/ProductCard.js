@@ -11,7 +11,7 @@ const ProductCard = ({ product }) => {
   return (
     <li className="product-card">
       <Link href={`/products/${product.id}`}>
-        <div className="img-container">
+        <div className="product-img-container">
           <Image
             src={firstImage}
             className=""

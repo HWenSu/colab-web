@@ -7,6 +7,13 @@ const page = () => {
   return (
     <div className="about-page-container">
       <section className="about-design-section">
+        <Image
+          src="/image/about-bg.png"
+          alt="about-bg"
+          width={400}
+          height={200}
+          className="w-[80vw] absolute top-[50vh] -left-[10vw]"
+        />
         <ShaderImg imgUrl={"/image/about.png"} />
         <div className="about-items-container">
           <div className="about-item">
@@ -65,6 +72,7 @@ const page = () => {
         </div>
       </section>
       <section className="h-screen"></section>
+
     </div>
   );
 };

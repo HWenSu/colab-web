@@ -60,6 +60,11 @@ const ShaderImg = ({ imgUrl }) => {
       );
       camera.position.z = 1;
 
+      // 獲取圖片的寬高比
+      const aspectRatio = texture.image.width / texture.image.height;
+      const planeWidth = 2 * aspectRatio; // 根據圖片比例調整寬度
+      const planeHeight = 2; // 高度保持為 2
+
       const shaderUniforms = {
         u_mouse: { value: new THREE.Vector2() },
         u_prevMouse: { value: new THREE.Vector2() },
@@ -68,7 +73,7 @@ const ShaderImg = ({ imgUrl }) => {
       };
 
       planeMesh = new THREE.Mesh(
-        new THREE.PlaneGeometry(2, 2),
+        new THREE.PlaneGeometry(planeWidth, planeHeight),
         new THREE.ShaderMaterial({
           uniforms: shaderUniforms,
           vertexShader,
@@ -135,8 +140,10 @@ const ShaderImg = ({ imgUrl }) => {
     };
 
     let cleanup;
+    const textureLoader = new THREE.TextureLoader();
+
     if (imageElement.complete) {
-      const texture = new THREE.TextureLoader().load(imageElement.src);
+      textureLoader.load(imageElement.src, (texture) => {
       initializeScene(texture);
       animateScene();
       imageContainer.addEventListener("mousemove", handleMouseMove);
@@ -146,10 +153,11 @@ const ShaderImg = ({ imgUrl }) => {
         imageContainer.removeEventListener("mousemove", handleMouseMove);
         imageContainer.removeEventListener("mouseenter", handleMouseEnter);
         imageContainer.removeEventListener("mouseleave", handleMouseLeave);
-      };
+      }
+    })
     } else {
       imageElement.addEventListener("load", () => {
-        const texture = new THREE.TextureLoader().load(imageElement.src);
+      textureLoader.load(imageElement.src, (texture) => {
         initializeScene(texture);
         animateScene();
         imageContainer.addEventListener("mousemove", handleMouseMove);
@@ -161,6 +169,7 @@ const ShaderImg = ({ imgUrl }) => {
           imageContainer.removeEventListener("mouseleave", handleMouseLeave);
         };
       });
+    })
     }
 
     return () => {
@@ -174,10 +183,13 @@ const ShaderImg = ({ imgUrl }) => {
         ref={imageRef}
         src={imgUrl}
         alt="colab"
-        style={{ display: "block", width: "auto", height: "auto" }}
+        className="w-full h-full opacity-0 object-cover"
       />
       {/* three.js 畫布 */}
-      <canvas ref={canvasRef} className="canvas"></canvas>
+      <canvas
+        ref={canvasRef}
+        className="absolute inset-0 w-full h-full  object-cover"
+      ></canvas>
     </div>
   );
 };

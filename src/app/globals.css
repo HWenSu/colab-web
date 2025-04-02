@@ -152,27 +152,34 @@
 
 /* 共用樣式 */
 .img-container {
-  @apply w-full h-full bg-gray-200 overflow-hidden;
+  @apply absolute w-full h-full bg-gray-200 overflow-hidden;
 }
 
 .img-container img {
-  @apply w-full h-full;
+  @apply w-full h-full opacity-0;
 }
 
 /* 圖片特效 */
 .image-container {
-  @apply w-[700] h-[700] absolute top-[8rem] left-1/2 -translate-x-1/2 bg-transparent;
+  @apply relative bg-transparent overflow-hidden
+    /* 手機版 (預設) */
+    w-[90vw] h-[90vh]
+    /* 平板 */
+    md:w-[600px]
+    /* 小螢幕電腦 */
+    lg:w-[700px]
+    /* 大螢幕 */
+    xl:w-[800px]
+    /* 超大螢幕 */
+    2xl:w-[1000px];
 }
 
 .image-container img,
 .image-container canvas {
-  position: absolute;
-  inset: 0;
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover;
-  background: transparent !important;
-  pointer-events: none;
+  @apply absolute inset-0
+    w-full h-full
+    object-cover  /* 改用 cover 確保填滿但不變形 */
+    pointer-events-none;
 }
 
 .image-container canvas {
@@ -210,15 +217,19 @@
 }
 
 .main-nav a {
-  @apply p-4 hover:font-bold;
+  @apply p-5 hover:font-bold;
 }
 
 .dropdown-bg {
-  @apply absolute inset-0 w-full scale-y-0 z-[800] origin-top bg-primary transition-all duration-300 ease-in-out pointer-events-none;
+  @apply fixed inset-0 w-full scale-y-0 z-[800] origin-top bg-primary/95 backdrop-blur-sm transition-all duration-300 ease-in-out;
 }
 
 .scale-y-short {
-  @apply fixed scale-y-18;
+  @apply scale-y-30 pointer-events-auto;
+}
+
+.dropdown-content {
+  @apply container mx-auto px-4 md:px-6 lg:px-8 py-8;
 }
 
 .product-items {
@@ -240,7 +251,21 @@
 
 /* Home Page */
 .home-page-container {
-  @apply relative w-screen min-h-screen;
+  @apply  w-screen min-h-screen
+}
+
+.home-page-container .image-container {
+  @apply  w-full  bottom-0 left-1/2 -translate-x-1/2 z-[8]
+    /* 手機版 (預設) */
+    h-[70vh] w-[40vw] relative
+    /* 平板 */
+    md:h-[25rem] md:w-[35rem] md:absolute
+    /* 小螢幕電腦 */
+    lg:h-[70rem] lg:w-[40vw] lg:top-[5vh]
+    /* 大螢幕 */
+    xl:h-[60rem] xl:w-[40rem]
+    /* 超大螢幕 */
+    2xl:h-[70rem] 2xl:w-[80rem];
 }
 
 .grid-bg {
@@ -297,7 +322,21 @@
 }
 
 .about-items-container {
-  @apply flex flex-col relative z-[10] pt-[30vh];
+  @apply flex flex-col relative z-[10] pt-[30vh] pointer-events-none;
+}
+
+.about-design-section .image-container {
+  @apply  w-full  top-[10vh] left-1/2 -translate-x-1/2 
+    /* 手機版 (預設) */
+    h-[70vh] w-[40vw] relative
+    /* 平板 */
+    md:h-[25rem] md:w-[35rem] md:top-[30vh]  md:absolute
+    /* 小螢幕電腦 */
+    lg:h-[30rem] lg:w-[50rem] 
+    /* 大螢幕 */
+    xl:h-[40rem] xl:w-[50rem] xl:top-[10vh]
+    /* 超大螢幕 */
+    2xl:h-[70rem] 2xl:w-[80rem];
 }
 
 .about-item {
@@ -317,7 +356,7 @@
 }
 
 .about-item img {
-  @apply place-self-center hover:rotate-360 duration-500 ease-in-out;
+  @apply place-self-center;
 }
 
 .about-large-w {
@@ -365,11 +404,21 @@
 /* Product 頁面 */
 /* Product Card */
 .products-list-container {
-  @apply grid grid-cols-5 gap-[4rem] px-[4vw] justify-center items-center my-[4rem];
+  @apply grid grid-cols-5 gap-[4rem] px-[4vw] justify-center items-center my-[4rem]
+  
+  ;
 }
 
 .product-card {
   @apply relative w-full h-[22vw];
+}
+
+.product-img-container{
+@apply w-full h-full overflow-hidden 
+}
+
+.product-img-container img{
+  @apply w-full h-full
 }
 
 .product-card h3 {
@@ -393,11 +442,11 @@
 }
 
 .description {
-  @apply relative -top-[36rem] p-2 text-white opacity-0;
+  @apply relative -top-[50vh] p-2 text-white opacity-0;
 }
 
 .product-card:hover .description {
-  @apply relative -top-[30rem] opacity-100 duration-600 ease-in-out;
+  @apply relative -top-[45vh] opacity-100 duration-600 ease-in-out;
 }
 
 /* Product Info Card */

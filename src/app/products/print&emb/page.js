@@ -2,7 +2,13 @@ import React from 'react'
 
 const page = () => {
   return (
-    <div>page</div>
+    <div>
+      <h2>GRAPHIC</h2>
+      <section>
+
+      </section>
+      
+    </div>
   )
 }
 
