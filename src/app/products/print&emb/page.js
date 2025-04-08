@@ -36,7 +36,16 @@ const page = () => {
         <ProductsList url={"/data/productsData.json"} />
       </section>
       {/* 技法選單區塊 */}
-      <IntroList/>
+      <section className="h-[100vh] relative">
+        <IntroList
+          videoUrl={"/video/Colab2022.mp4"}
+          listItem={[
+            "Create Volume with Print",
+            "Soft Texture",
+            "Special Techniques",
+          ]}
+        />
+      </section>
       {/* 滾動式差背景圖片區塊 */}
       <div className="relative w-full h-[70vh] overflow-hidden bg-black">
         <div className="w-full h-full bg-[url('/image/print-hero.jpg')] bg-cover bg-center bg-fixed">

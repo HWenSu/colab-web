@@ -168,7 +168,23 @@
   }
   .animate-scale-up {
     animation: scale-up;
-    animation-timeline: scroll(y);
+    animation-timeline: scroll(block);
+    animation-range: 0% 50%; 
+    animation-fill-mode: forwards; /* 動畫結束後保持最終狀態 */
+  }
+    @keyframes broaden {
+    0% {
+      width: 10rem;
+    }
+    100% {
+      width: 40rem;
+    }
+  }
+  .animate-scroll-broaden {
+    animation: broaden;
+    animation-timeline: --scroll-section;
+    animation-range: entry 60% entry 110%; 
+    animation-fill-mode: forwards; 
   }
   @keyframes blur-text {
     from {
@@ -184,7 +200,7 @@
     animation: blur-text linear;
     animation-timeline: --scroll-section; /* 根據滾動位置觸發 */
     animation-range: entry 90% entry 110%; 
-    animation-fill-mode: forwards; /* 動畫結束後保持最終狀態 */
+    animation-fill-mode: forwards; 
   }
 
   @keyframes fade-to-black {
