@@ -6,16 +6,23 @@ import ShaderImg from "@/components/ShaderImg";
 export default function Home() {
   return (
     <div className="home-page-container">
-      <section className="video-section">
+      <section className="video-section ">
         <video
           src={"/video/Co-web.mp4"}
           autoPlay
           muted
           loop
-          className="w-full h-auto"
+          className="w-full h-auto fixed"
         />
+        <div className="h-[200vh] z-10 relative">
+          <div className="sticky top-[80vh] w-full">
+            <h2 className="text-white text-[2rem] font-bold text-center animate-scale-up">
+              FE INNOVATION DESIGN
+            </h2>
+          </div>
+        </div>
       </section>
-      <section className="hero-section relative">
+      <section className="hero-section relative bg-white">
         <div className="grid-bg">
           <div className="grid-item"></div>
           <div className="grid-item"></div>

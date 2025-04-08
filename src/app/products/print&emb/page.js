@@ -1,15 +1,52 @@
-import React from 'react'
+"use client";
+import APIFetcher from "@/components/APIFetcher";
+import Gallery from "@/components/Gallery";
+import ProductsList from "@/components/ProductsList";
+import BlurText from "@/components/BlurText";
+import LightText from "@/components/LightText";
+import IntroList from "@/components/IntroList";
 
 const page = () => {
+
   return (
-    <div>
-      <h2>GRAPHIC</h2>
-      <section>
-
+    <div className="print-page-container">
+      <div>
+        <h2 className="sticky top-0 ">GRAPHIC</h2>
+        <section className="w-full h-[60vh]">
+          <APIFetcher url="/data/productsData.json">
+            {(products) => (
+              <div>
+                {products &&
+                  products.map((product) => (
+                    <Gallery key={product.id} images={product.image} />
+                  ))}
+              </div>
+            )}
+          </APIFetcher>
+        </section>
+      </div>
+      {/* 印繡花介紹區塊 */}
+      <section className="w-full h-[100vh]  ">
+        <div className="w-full h-full bg-black text-white scroll-section">
+          <BlurText words={"PRINT & EMBROIDERY"} />
+        </div>
       </section>
-      
+      {/* 商品列表區塊 */}
+      <section className="my-[10em]">
+        <ProductsList url={"/data/productsData.json"} />
+      </section>
+      {/* 技法選單區塊 */}
+      <IntroList/>
+      {/* 滾動式差背景圖片區塊 */}
+      <div className="relative w-full h-[70vh] overflow-hidden bg-black">
+        <div className="w-full h-full bg-[url('/image/print-hero.jpg')] bg-cover bg-center bg-fixed">
+          <div className="w-full h-full flex items-center justify-center text-white text-4xl font-bold">
+            Runway Style
+          </div>
+        </div>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default page;

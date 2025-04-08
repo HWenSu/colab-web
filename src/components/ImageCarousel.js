@@ -12,6 +12,8 @@ const ImageCarousel = ({ images, handleClose, clickedIndex }) => {
     setCurrentImgIndex(index);
   };
 
+  console.log(clickedIndex)
+
   // 處理圖片放大處理
   const handleMouseMove = (e) => {
     const {

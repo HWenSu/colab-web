@@ -35,7 +35,12 @@ const APIFetcher = ({ url, children, fallback }) => {
     return <div>Something wrong!</div>;
   }
 
-  return children(data);
+  // 確保 children 是一個函數，並且正確調用它
+  if (typeof children === "function") {
+    return children(data);
+  }
+
+  return null;
 };
 
 export default APIFetcher;

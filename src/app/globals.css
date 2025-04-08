@@ -148,6 +148,59 @@
   .animate-slide-up {
     animation: slide-up 0.3s ease-in-out;
   }
+
+  .animate-scroll-up {
+    animation: slice-up;
+    animation-timeline: scroll(y);
+  }
+
+  @keyframes scale-up {
+    0% {
+      transform: scale(1);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    100% {
+      transform: scale(5);
+    }
+  }
+  .animate-scale-up {
+    animation: scale-up;
+    animation-timeline: scroll(y);
+  }
+  @keyframes blur-text {
+    from {
+      filter: blur(var(--initial-blur)); /* 從隨機模糊值開始 */
+    }
+    to {
+      filter: blur(0); /* 滾動到底部時固定為 0 */
+    }
+  }
+
+  .animate-blur-text {
+    filter: blur(var(--initial-blur)); /* 初始狀態 */
+    animation: blur-text linear;
+    animation-timeline: --scroll-section; /* 根據滾動位置觸發 */
+    animation-range: entry 90% entry 110%; 
+    animation-fill-mode: forwards; /* 動畫結束後保持最終狀態 */
+  }
+
+  @keyframes fade-to-black {
+    to {
+      color: rgb(0, 0, 0)
+    }
+  }
+
+  .animate-fade-to-black {
+    display: inline-block; /* 確保單詞不換行 */
+    animation: fade-to-black linear;
+    animation-timeline:  --scroll-section;
+    animation-fill-mode: both; /* 結合 backwards 和 forwards */
+    animation-range: calc( var(--animation-index) * 1.2%) calc( 3% + (var(--animation-index) + 1) * 1.2%); /* 根據單詞索引錯開動畫範圍 */
+  }
+
 }
 
 /* 共用樣式 */
@@ -157,6 +210,12 @@
 
 .img-container img {
   @apply w-full h-full opacity-0;
+}
+
+/* 滾動範圍設定 */
+.scroll-section {
+  view-timeline-name: --scroll-section;
+  view-timeline-axis: block;
 }
 
 /* 圖片特效 */
@@ -225,7 +284,7 @@
 }
 
 .scale-y-short {
-  @apply scale-y-30 pointer-events-auto;
+  @apply pointer-events-auto  scale-y-20;
 }
 
 .dropdown-content {
@@ -251,11 +310,11 @@
 
 /* Home Page */
 .home-page-container {
-  @apply  w-screen min-h-screen
+  @apply w-screen min-h-screen;
 }
 
 .home-page-container .image-container {
-  @apply  w-full  bottom-0 left-1/2 -translate-x-1/2 z-[8]
+  @apply w-full  bottom-0 left-1/2 -translate-x-1/2 z-[8]
     /* 手機版 (預設) */
     h-[70vh] w-[40vw] relative
     /* 平板 */
@@ -326,7 +385,7 @@
 }
 
 .about-design-section .image-container {
-  @apply  w-full  top-[10vh] left-1/2 -translate-x-1/2 
+  @apply w-full  top-[10vh] left-1/2 -translate-x-1/2 
     /* 手機版 (預設) */
     h-[70vh] w-[40vw] relative
     /* 平板 */
@@ -404,21 +463,19 @@
 /* Product 頁面 */
 /* Product Card */
 .products-list-container {
-  @apply grid grid-cols-5 gap-[4rem] px-[4vw] justify-center items-center my-[4rem]
-  
-  ;
+  @apply grid grid-cols-5 gap-[4rem] px-[4vw] justify-center items-center my-[4rem];
 }
 
 .product-card {
   @apply relative w-full h-[22vw];
 }
 
-.product-img-container{
-@apply w-full h-full overflow-hidden 
+.product-img-container {
+  @apply w-full h-full overflow-hidden;
 }
 
-.product-img-container img{
-  @apply w-full h-full
+.product-img-container img {
+  @apply w-full h-full object-cover;
 }
 
 .product-card h3 {
@@ -429,15 +486,15 @@
   @apply flex justify-between text-xs lg:text-sm;
 }
 
-.products-list-container .img-container::after {
-  @apply content-[''] absolute inset-0 bg-black opacity-0 scale-y-0 origin-top duration-500 ease-in-out;
-}
-
 .products-list-container .img-container img {
   @apply object-cover;
 }
 
-.products-list-container .img-container:hover::after {
+.product-img-container::after {
+  @apply content-[''] absolute inset-0 bg-black opacity-0 scale-y-0 origin-top duration-500 ease-in-out;
+}
+
+.product-img-container:hover::after {
   @apply opacity-10 scale-y-60;
 }
 
@@ -446,7 +503,7 @@
 }
 
 .product-card:hover .description {
-  @apply relative -top-[45vh] opacity-100 duration-600 ease-in-out;
+  @apply relative -top-[25rem] opacity-100 duration-600 ease-in-out pointer-events-none;
 }
 
 /* Product Info Card */
@@ -464,6 +521,10 @@
 
 .image-section .img-container img {
   @apply object-cover;
+}
+
+.product-big-image img{
+  @apply w-full object-cover
 }
 
 .detail-img-container {
@@ -538,4 +599,61 @@
 
 .close-btn {
   @apply absolute -top-[3rem] -right-[15vw] text-[5rem] text-secondary;
+}
+
+/* Print Page */
+
+.print-page-container {
+  @apply pt-[15vh]
+}
+
+.print-page-container h2 {
+  @apply text-center text-[5vw]
+}
+
+.print-page-container .blur-text-container{
+@apply text-[6rem] px-[8rem] py-[18rem]
+}
+
+.print-tech-container {
+  @apply flex justify-between
+}
+
+.print-tech-title{
+  @apply border-b w-[40vw] text-left py-[5rem]
+}
+
+.print-tech-title p {
+  @apply opacity-50 px-2 text-[0.8rem]
+}
+
+.print-tech-title .blur-text-container {
+  @apply text-[3rem]  py-0 px-2 w-[20vw]
+}
+
+.light-text-container{
+  @apply w-[28vw] text-[1.2rem] text-[#ededed]
+}
+
+
+/* Gallery */
+
+.gallery-container {
+  @apply absolute top-1/2 left-1/2 -translate-1/2 mx-auto py-[1rem] px-[0.5rem] flex justify-center w-[1000px];
+}
+
+.gallery {
+  @apply flex justify-around w-full overflow-hidden;
+}
+
+.gallery-item {
+  @apply flex justify-center bg-black items-center flex-[0_1_20px] h-[500px] mx-[5px] my-0 overflow-hidden transition-[flex] duration-100 ease-[cubic-bezier(0.75,0.82,0.165,1)];
+}
+
+.gallery-item img {
+  @apply max-w-[400px] object-contain scale-[200%];
+}
+
+.hover-item {
+  @apply flex-[1_1_400px] 
 }

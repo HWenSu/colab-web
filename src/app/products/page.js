@@ -2,8 +2,7 @@
 import CategoryCard from "@/components/CategoryCard";
 import APIFetcher from "@/components/APIFetcher";
 import Image from "next/image";
-import ProductCard from "@/components/ProductCard";
-
+import ProductsList from "@/components/ProductsList";
 
 const page = () => {
   return (
@@ -47,18 +46,7 @@ const page = () => {
       {/* 大分類卡片 */}
       <CategoryCard />
       {/* 所有款式選染 */}
-      <section>
-        <APIFetcher url={"/data/productsData.json"}>
-          {(products) => (
-            <ul className="products-list-container">
-              {products &&
-                products.map((product) => (
-                  <ProductCard key={product.id} product={product} />
-                ))}
-            </ul>
-          )}
-        </APIFetcher>
-      </section>
+      <ProductsList url={"/data/productsData.json"} />
     </div>
   );
 };

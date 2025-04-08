@@ -37,7 +37,7 @@ export default function ProductPage({ params }) {
                 {/* 圖片區塊 */}
                 <section className="image-section">
                   <div
-                    className="img-container product-big-image"
+                    className="product-big-image"
                     onClick={() => handleImgClicked(0)}
                   >
                     <Image
