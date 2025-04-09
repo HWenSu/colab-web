@@ -9,13 +9,14 @@ module.exports = {
     extend: {
       keyframes: {
         "blur-text": {
-          "0%": { filter: "blur(0px)" },
-          "50%": { filter: "blur(15px)" },
-          "100%": { filter: "blur(0px)" },
+          "0%": { filter: "blur(var(--initial-blur))" },
+          "50%": { filter: "blur(0px)" },
+          "100%": { filter: "blur(var(--initial-blur))" },
         },
       },
       animation: {
-        "blur-text": "blur-text 2s ease-in-out infinite",
+        "blur-text":
+          "blur-text var(--animation-duration) ease-in-out infinite var(--animation-delay)",
       },
     },
   },

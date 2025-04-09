@@ -1,16 +1,30 @@
 "use client";
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import ShaderImg from "@/components/ShaderImg";
 import CategoryCard from "@/components/CategoryCard";
 import BlurText from "@/components/BlurText";
 import IntroList from "@/components/IntroList";
+import CustomCursor from "@/components/CustomCursor";
+import { useCustomCursor } from "@/hooks/useCustomCursor";
+
 
 export default function Home() {
+  // 調用自訂義鼠標Hook
+  const { cursorActive, cursorText, handleCursor, resetCursor } =
+    useCustomCursor();
+
   return (
     <div className="home-page-container">
+      {/* 自訂義滑鼠 */}
+      <CustomCursor active={cursorActive} cursorText={cursorText} />
       {/* 影片區塊 */}
-      <section className="video-section ">
+      <section
+        className="video-section cursor-none"
+        onMouseEnter={() => handleCursor("Scroll")}
+        onMouseLeave={resetCursor}
+      >
         <video
           src={"/video/Co-web.mp4"}
           autoPlay
@@ -26,8 +40,8 @@ export default function Home() {
           </div>
         </div>
       </section>
-      {/* 主圖區塊 */}
-      <section className="hero-section relative ">
+      {/* 主圖區塊 自訂義滑鼠開啟 */}
+      <section className="hero-section relative">
         <div className="grid-bg">
           <div className="grid-item"></div>
           <div className="grid-item"></div>
@@ -35,7 +49,13 @@ export default function Home() {
           <div className="grid-item"></div>
           <div className="grid-item"></div>
         </div>
-        <ShaderImg imgUrl={"/image/TNB_background_removed(3).png"} />
+        <div
+          className="cursor-none"
+          onMouseEnter={() => handleCursor("hover")}
+          onMouseLeave={resetCursor}
+        >
+          <ShaderImg imgUrl={"/image/TNB_background_removed(3).png"} />
+        </div>
         <div className="circle-item"></div>
         <div className="hero-grid">
           <div></div>
@@ -100,7 +120,11 @@ export default function Home() {
       </section>
       {/* 文字說明區塊 */}
       <section className="bg-black  flex flex-col pt-[20rem]  scroll-section text-[4rem]">
-        <div className="sticky top-40 pr-[5rem]">
+        <div
+          className="sticky top-40 pr-[5rem] cursor-none"
+          onMouseEnter={() => handleCursor("Scroll")}
+          onMouseLeave={resetCursor}
+        >
           <div className="invert flex justify-end ">
             <BlurText words={"COLAB is the creative and innovation center"} />
           </div>
@@ -123,15 +147,21 @@ export default function Home() {
           <IntroList
             invert={"invert"}
             videoUrl={"/video/Colab2022.mp4"}
-            listItem={
-              (["Create Volume with Print", "Soft Texture", "Special Techniques"])
-            }
+            listItem={[
+              "Create Volume with Print",
+              "Soft Texture",
+              "Special Techniques",
+            ]}
           />
         </div>
       </section>
       {/* 分類卡片區塊 */}
-      <section className="bg-white h-[100vh] w-full">
-        <CategoryCard />
+      <section
+        className="bg-white h-[100vh] w-full cursor-none"
+        onMouseEnter={() => handleCursor("Click")}
+        onMouseLeave={resetCursor}
+      >
+        <CategoryCard cursorActive={cursorActive} />
       </section>
     </div>
   );

@@ -3,16 +3,28 @@ import APIFetcher from "@/components/APIFetcher";
 import Gallery from "@/components/Gallery";
 import ProductsList from "@/components/ProductsList";
 import BlurText from "@/components/BlurText";
-import LightText from "@/components/LightText";
 import IntroList from "@/components/IntroList";
+import CustomCursor from "@/components/CustomCursor";
+import { useCustomCursor } from "@/hooks/useCustomCursor";
 
 const page = () => {
+  // 調用自訂義鼠標Hook
+  const { cursorActive, cursorText, handleCursor, resetCursor } =
+    useCustomCursor();
 
   return (
     <div className="print-page-container">
-      <div>
+      {/* 自訂義滑鼠 */}
+      <CustomCursor active={cursorActive} cursorText={cursorText} />
+      {/* 輪播圖區塊 */}
+      <section>
         <h2 className="sticky top-0 ">GRAPHIC</h2>
-        <section className="w-full h-[60vh]">
+        {/*  */}
+        <div
+          className="w-full h-[60vh] cursor-none"
+          onMouseEnter={() => handleCursor("Hover")}
+          onMouseLeave={resetCursor}
+        >
           <APIFetcher url="/data/productsData.json">
             {(products) => (
               <div>
@@ -23,8 +35,8 @@ const page = () => {
               </div>
             )}
           </APIFetcher>
-        </section>
-      </div>
+        </div>
+      </section>
       {/* 印繡花介紹區塊 */}
       <section className="w-full h-[100vh]  ">
         <div className="w-full h-full bg-black text-white scroll-section">

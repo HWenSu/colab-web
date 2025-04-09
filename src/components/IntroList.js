@@ -1,6 +1,5 @@
 import BlurText from "@/components/BlurText";
 import LightText from "@/components/LightText";
-import Image from "next/image";
 
 const IntroList = ({invert, listItem, videoUrl}) => {
 

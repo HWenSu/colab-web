@@ -1,11 +1,19 @@
 "use client";
-
 import Image from "next/image";
 import ShaderImg from "@/components/ShaderImg";
+import CustomCursor from "@/components/CustomCursor";
+import { useCustomCursor } from "@/hooks/useCustomCursor";
 
 const page = () => {
+  // 調用自訂義鼠標Hook
+  const { cursorActive, cursorText, handleCursor, resetCursor } =
+    useCustomCursor()
+
   return (
     <div className="about-page-container">
+      {/* 自訂義滑鼠 */}
+      <CustomCursor active={cursorActive} cursorText={cursorText} />
+      {/* 主介紹區 */}
       <section className="about-design-section">
         <Image
           src="/image/about-bg.png"
@@ -14,7 +22,13 @@ const page = () => {
           height={200}
           className="w-[80vw] absolute top-[50vh] -left-[10vw]"
         />
-        <ShaderImg imgUrl={"/image/about.png"} />
+        <div
+          className="cursor-none"
+          onMouseEnter={() => handleCursor("Hover")}
+          onMouseLeave={resetCursor}
+        >
+          <ShaderImg imgUrl={"/image/about.png"} />
+        </div>
         <div className="about-items-container">
           <div className="about-item">
             <Image
@@ -61,7 +75,7 @@ const page = () => {
           <div className="about-item">
             <div className="col-start-2">
               <h3 className="about-large-w ">DESIGN </h3>
-              <h3>MEN’S WOMEN’S</h3>
+              <h3>MEN'S WOMEN'S</h3>
               <h3>GRAPHIC</h3>
             </div>
             <h2 className="about-item-center">COLAB</h2>
@@ -72,7 +86,6 @@ const page = () => {
         </div>
       </section>
       <section className="h-screen"></section>
-
     </div>
   );
 };

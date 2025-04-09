@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const CategoryCard = () => {
+
+const CategoryCard = ({cursorActive}) => {
 const categoryList = [
   {
     name: "MEN'S",
@@ -23,7 +24,7 @@ const categoryList = [
   return (
     <ul className="category-cards-container">
       {categoryList.map((item) => (
-        <Link href={item.linkUrl} key={item.name}>
+        <Link href={item.linkUrl} key={item.name} className={`${cursorActive&& 'cursor-none'}`}>
           <li className="category-card">
             <Image
               src={item.imgUrl}
