@@ -121,6 +121,46 @@
     @apply bg-background text-foreground;
     font-family: var(--font-quantico);
   }
+  html {
+    /* Base font size using relative units */
+    font-size: 62.5%; /* 1rem = 10px */
+    scroll-behavior: smooth;
+  }
+
+  /* Large desktop screens (1440px and up) */
+  @media (min-width: 1440px) {
+    html {
+      font-size: 90%;
+    }
+  }
+
+  /* Desktop screens (1024px to 1439px) */
+  @media (min-width: 1024px) and (max-width: 1439px) {
+    html {
+      font-size: 62.5%; /* 1rem = 10px */
+    }
+  }
+
+  /* Tablet landscape (768px to 1023px) */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    html {
+      font-size: 56.25%; /* 1rem = 9px */
+    }
+  }
+
+  /* Tablet portrait (640px to 767px) */
+  @media (min-width: 640px) and (max-width: 767px) {
+    html {
+      font-size: 50%; /* 1rem = 8px */
+    }
+  }
+
+  /* Mobile devices (below 640px) */
+  @media (max-width: 639px) {
+    html {
+      font-size: 43.75%; /* 1rem = 7px */
+    }
+  }
 }
 
 /* 在 Tailwind utilities 層定義動畫類別 */
@@ -169,10 +209,10 @@
   .animate-scale-up {
     animation: scale-up;
     animation-timeline: scroll(block);
-    animation-range: 0% 50%; 
+    animation-range: 0% 50%;
     animation-fill-mode: forwards; /* 動畫結束後保持最終狀態 */
   }
-    @keyframes broaden {
+  @keyframes broaden {
     0% {
       width: 10rem;
     }
@@ -183,8 +223,8 @@
   .animate-scroll-broaden {
     animation: broaden;
     animation-timeline: --scroll-section;
-    animation-range: entry 60% entry 110%; 
-    animation-fill-mode: forwards; 
+    animation-range: entry 60% entry 110%;
+    animation-fill-mode: forwards;
   }
   @keyframes blur-text {
     from {
@@ -199,24 +239,24 @@
     filter: blur(var(--initial-blur)); /* 初始狀態 */
     animation: blur-text linear;
     animation-timeline: --scroll-section; /* 根據滾動位置觸發 */
-    animation-range: entry 90% entry 110%; 
-    animation-fill-mode: forwards; 
+    animation-range: entry 90% entry 110%;
+    animation-fill-mode: forwards;
   }
 
   @keyframes fade-to-black {
     to {
-      color: rgb(0, 0, 0)
+      color: rgb(0, 0, 0);
     }
   }
 
   .animate-fade-to-black {
     display: inline-block; /* 確保單詞不換行 */
     animation: fade-to-black linear;
-    animation-timeline:  --scroll-section;
+    animation-timeline: --scroll-section;
     animation-fill-mode: both; /* 結合 backwards 和 forwards */
-    animation-range: calc( var(--animation-index) * 1.2%) calc( 3% + (var(--animation-index) + 1) * 1.2%); /* 根據單詞索引錯開動畫範圍 */
+    animation-range: calc(var(--animation-index) * 1.2%)
+      calc(3% + (var(--animation-index) + 1) * 1.2%); /* 根據單詞索引錯開動畫範圍 */
   }
-
 }
 
 /* 共用樣式 */
@@ -227,7 +267,6 @@
 .img-container img {
   @apply w-full h-full opacity-0;
 }
-
 
 /* 滾動範圍設定 */
 .scroll-section {
@@ -540,8 +579,8 @@
   @apply object-cover;
 }
 
-.product-big-image img{
-  @apply w-full object-cover
+.product-big-image img {
+  @apply w-full object-cover;
 }
 
 .detail-img-container {
@@ -621,42 +660,41 @@
 /* Print Page */
 
 .print-page-container {
-  @apply pt-[15vh]
+  @apply pt-[15vh];
 }
 
 .print-page-container h2 {
-  @apply text-center text-[5vw]
+  @apply text-center text-[8rem];
 }
 
-.print-page-container .blur-text-container{
-@apply text-[6rem] px-[8rem] py-[18rem]
+.print-page-container .blur-text-container {
+  @apply text-[6rem] px-[8rem] py-[18rem];
 }
 
 .print-tech-container {
-  @apply flex justify-between
+  @apply flex justify-between;
 }
 
-.print-tech-title{
-  @apply border-b w-[40vw] text-left py-[5rem]
+.print-tech-title {
+  @apply border-black/50 border-b-[0.3px] w-[40vw] text-left py-[2rem];
 }
 
 .print-tech-title p {
-  @apply opacity-50 px-2 text-[0.8rem]
+  @apply opacity-50 px-2 text-[0.8rem];
 }
 
 .print-tech-title .blur-text-container {
-  @apply text-[3rem]  py-0 px-2 w-[20vw]
+  @apply text-[2.3rem]  py-0 px-2 w-[20vw];
 }
 
-.light-text-container{
-  @apply w-[28vw] text-[1.2rem] text-[#ededed]
+.light-text-container {
+  @apply w-[28vw] text-[1.2rem] text-[#ededed];
 }
-
 
 /* Gallery */
 
 .gallery-container {
-  @apply absolute top-1/2 left-1/2 -translate-1/2 mx-auto py-[1rem] px-[0.5rem] flex justify-center w-[1000px];
+  @apply absolute top-[35vh] left-1/2 -translate-x-1/2 mx-auto py-[1rem] px-[0.5rem] flex justify-center w-[50vw] h-[40vh];
 }
 
 .gallery {
@@ -664,13 +702,13 @@
 }
 
 .gallery-item {
-  @apply flex justify-center bg-black items-center flex-[0_1_20px] h-[500px] mx-[5px] my-0 overflow-hidden transition-[flex] duration-100 ease-[cubic-bezier(0.75,0.82,0.165,1)];
+  @apply flex justify-center items-center flex-[0_1_1.5rem] mx-[0.5rem] my-0 overflow-hidden transition-[flex] duration-100 ease-[cubic-bezier(0.75,0.82,0.165,1)];
 }
 
 .gallery-item img {
-  @apply max-w-[400px] object-contain scale-[200%];
+  @apply max-w-[500px] object-contain scale-[2];
 }
 
 .hover-item {
-  @apply flex-[1_1_400px] 
+  @apply flex-[1_1_10rem];
 }
