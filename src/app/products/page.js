@@ -23,21 +23,21 @@ const page = () => {
         height={40}
       />
       <Image
-        className="absolute top-[40vh] left-[20vw] z-[10] "
+        className="absolute top-[40vh] left-[20vw] z-[10] w-[12vw]"
         src="/image/product-tape-03.png"
         alt="mens"
         width={220}
         height={40}
       />
       <Image
-        className="absolute top-[35vh] left-[40vw] z-[10] "
+        className="absolute top-[35vh] left-[40vw] z-[10] w-[12vw] "
         src="/image/product-tape-04.png"
         alt="mens"
         width={200}
         height={40}
       />
       <Image
-        className="absolute top-[40vh] left-[72vw] z-[10] "
+        className="absolute top-[40vh] left-[72vw] z-[10] w-[12vw] "
         src="/image/product-tape-03.png"
         alt="mens"
         width={220}

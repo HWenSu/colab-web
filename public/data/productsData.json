@@ -158,5 +158,22 @@
     "function": ["INSULATED", "LIGHTWEIGHT"],
     "colors": "navy blue",
     "size": "L"
+  },
+    {
+    "id": 11,
+    "name": "Bubble Dynamism",
+    "style_no": "6BF-P01",
+    "description": "The surrounding bubble elements add a sense of dynamism and fluidity, symbolizing the evolving nature of material innovation and design exploration.",
+    "material": null,
+    "constructure": null,
+    "fabric_no": null,
+    "content": null,
+    "image":  ["/image/截圖 2025-04-11 下午4.29.53.png", "/image/PRODUCT-19-1.jpg", "/image/PRODUCT-19-2.jpg", "/image/PRODUCT-19-3.jpg", "/image/PRODUCT-19-4.jpg", "/image/PRODUCT-19-5.jpg", "/image/PRODUCT-19-6.jpg"],
+    "category": "print",
+    "style": "Create Volume With Print",
+    "function": null,
+    "colors": null,
+    "size": null,
+    "p-e-tech": ["Waterbase", "Pearlescent-Rubber", "Rubber" ]
   }
 ]

@@ -274,6 +274,12 @@
   view-timeline-axis: block;
 }
 
+/* 倒三角形 */
+.triangle {
+  @apply w-0 h-0 border-l-10 border-r-10 border-t-12 border-l-transparent border-r-transparent border-b-white mx-auto
+}
+
+
 /* 圖片特效 */
 .image-container {
   @apply relative bg-transparent overflow-hidden
@@ -484,6 +490,14 @@
 
 .about-item-right {
   @apply col-start-5;
+}
+
+.about-info-section {
+  @apply pb-[20rem]
+}
+
+.gradient-deco {
+  @apply relative w-full h-4 bg-gradient-to-r from-[#b0b3c1] via-[#1b1b1b] to-[#121914]
 }
 
 /* Product 頁面 */
