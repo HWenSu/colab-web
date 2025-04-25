@@ -212,7 +212,7 @@ const page = () => {
             alt="about-bottom-bg.png"
             width={1000}
             height={800}
-            className="absolute top-[20rem] left-1/2 translate-x-[-50%] scale-[2] object-top xl:scale-[3]"
+            className="absolute top-[20rem] left-1/2 translate-x-[-50%] object-top xl:scale-[3]"
           />
         </div>
       </section>

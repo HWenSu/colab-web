@@ -492,10 +492,6 @@
   @apply col-start-5;
 }
 
-.about-info-section {
-  @apply pb-[20rem]
-}
-
 .gradient-deco {
   @apply relative w-full h-4 bg-gradient-to-r from-[#b0b3c1] via-[#1b1b1b] to-[#121914]
 }
@@ -725,4 +721,18 @@
 
 .hover-item {
   @apply flex-[1_1_10rem];
+}
+
+/* Contact */
+.contact-grid-items{
+  @apply border-b border-black 
+}
+
+/* Login */
+.login-input{
+  @apply  bg-transparent border-b border-white/80 w-full py-2 focus:outline-none focus:border-secondary/30 text-secondary text-lg
+}
+
+.login-white-border{
+  @apply border-white/40 border-b w-full
 }

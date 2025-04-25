@@ -10,7 +10,6 @@ const quantico = Quantico({
   weight: ["400", "700"], // 可選字重（這裡包含 Regular 和 Bold）
 });
 
-
 export const metadata = {
   title: "Colab Design",
   description: "Far Eastern New Century innovation team",
