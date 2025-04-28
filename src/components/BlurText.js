@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react";
 
 const BlurText = ({ words, minBlur = 0, maxBlur = 10 }) => {
-  const characters = words.split("");
   const [blurs, setBlurs] = useState([]); // 初始為空
 
   useEffect(() => {
     // 只在客戶端生成模糊值
-    const newBlurs = characters.map(
-      () => Math.random() * (maxBlur - minBlur) + minBlur
-    );
+    const newBlurs = words
+      .split("")
+      .map(() => Math.random() * (maxBlur - minBlur) + minBlur);
     setBlurs(newBlurs);
   }, [words, minBlur, maxBlur]); // 當 props 改變時重新執行
 
@@ -19,7 +18,7 @@ const BlurText = ({ words, minBlur = 0, maxBlur = 10 }) => {
 
   return (
     <div className="blur-text-container">
-      {characters.map((character, index) => (
+      {words.split("").map((character, index) => (
         <span
           key={`${character}-${index}`}
           className="animate-blur-text"

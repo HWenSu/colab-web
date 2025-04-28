@@ -1,6 +1,6 @@
 import Image from "next/image"
 
-const page = () => {
+const Login = () => {
   return (
     <div className="bg-black text-white w-full h-screen flex justify-center items-center pt-10">
       <div className="w-[50vw] flex ">
@@ -40,4 +40,4 @@ const page = () => {
   );
 }
 
-export default page
+export default Login;

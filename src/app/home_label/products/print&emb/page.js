@@ -7,7 +7,7 @@ import IntroList from "@/components/IntroList";
 import CustomCursor from "@/components/CustomCursor";
 import { useCustomCursor } from "@/hooks/useCustomCursor";
 
-const page = () => {
+const Print = () => {
   // 調用自訂義鼠標Hook
   const { cursorActive, cursorText, handleCursor, resetCursor } =
     useCustomCursor();
@@ -25,12 +25,15 @@ const page = () => {
           onMouseEnter={() => handleCursor("Hover")}
           onMouseLeave={resetCursor}
         >
-          <APIFetcher url="/data/productsData.json">
+          <APIFetcher url="/data/Product_PETech.json">
             {(products) => (
               <div>
                 {products &&
                   products.map((product) => (
-                    <Gallery key={product.id} images={product.image} />
+                    <Gallery
+                      key={product.tArticleNo}
+                      images={product.tProductPETechPicCode}
+                    />
                   ))}
               </div>
             )}
@@ -45,7 +48,7 @@ const page = () => {
       </section>
       {/* 商品列表區塊 */}
       <section className="my-[10em]">
-        <ProductsList url={"/data/productsData.json"} />
+        <ProductsList url={"/data/Product_PETech.json"} />
       </section>
       {/* 技法選單區塊 */}
       <section className="h-[100vh] relative">
@@ -70,4 +73,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Print;

@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
+import Image from "next/image";
 
 const ShaderImg = ({ imgUrl }) => {
   const imageContainerRef = useRef(null);
@@ -179,10 +180,12 @@ const ShaderImg = ({ imgUrl }) => {
 
   return (
     <div ref={imageContainerRef} className="image-container">
-      <img
+      <Image
         ref={imageRef}
         src={imgUrl}
         alt="colab"
+        width={400}
+        height={300}
         className="w-full h-full opacity-0 object-cover"
       />
       {/* three.js 畫布 */}

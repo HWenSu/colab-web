@@ -9,19 +9,19 @@ const AnimatedBlurText = ({
   animationDuration = "2s",
   animationDelay = "0s",
 }) => {
-  const characters = text.split("");
   const [blurs, setBlurs] = useState([]);
   const [isVisible, setIsVisible] = useState(false);
   const containerRef = useRef(null);
 
   useEffect(() => {
-    const newBlurs = characters.map(
-      () => Math.random() * (maxBlur - minBlur) + minBlur
-    );
+    const newBlurs = text
+      .split("")
+      .map(() => Math.random() * (maxBlur - minBlur) + minBlur);
     setBlurs(newBlurs);
   }, [text, minBlur, maxBlur]);
 
   useEffect(() => {
+    const container = containerRef.current; // 存儲到局部變數
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -35,13 +35,13 @@ const AnimatedBlurText = ({
       }
     );
 
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
+    if (container) {
+      observer.observe(container);
     }
 
     return () => {
-      if (containerRef.current) {
-        observer.unobserve(containerRef.current);
+      if (container) {
+        observer.unobserve(container);
       }
     };
   }, [threshold]);

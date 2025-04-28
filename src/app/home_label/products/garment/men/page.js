@@ -2,7 +2,7 @@
 import APIFetcher from "@/components/APIFetcher";
 import ProductCard from "@/components/ProductCard";
 
-const page = () => {
+const MenPage = () => {
   return (
     <div className="pt-30">
       {/* 男裝款式選染 */}
@@ -30,4 +30,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default MenPage;

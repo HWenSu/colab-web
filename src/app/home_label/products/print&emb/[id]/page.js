@@ -3,7 +3,6 @@ import {use, useState} from 'react'
 import Image from "next/image";
 import APIFetcher from "@/components/APIFetcher";
 import ImageCarousel from '@/components/ImageCarousel';
-import useApiFetch from "@/hooks/useApiFetch";
 
 export default function ProductPage({ params }) {
   // 確保 params 被正確解析
@@ -13,34 +12,23 @@ export default function ProductPage({ params }) {
   const [isImgOpen, setIsImgOpen] = useState(false);
   const [clickedIndex, setClickedIndex] = useState(0);
 
-  // 使用 useApiFetch 載入 Product_Fabric.json
-  const {
-    data: fabricDetails,
-    loading: fabricLoading,
-    error: fabricError,
-  } = useApiFetch("/data/Product_Fabric.json");
+    const handleImgClicked = (index) => {
+      setIsImgOpen(true);
+      setClickedIndex(index);
+    };
 
-  const handleImgClicked = (index) => {
-    setIsImgOpen(true);
-    setClickedIndex(index);
-  };
-
-  const handleClose = () => {
-    setIsImgOpen(false);
-  };
-
-  // 如果 id 不存在，提前返回錯誤 UI
-  if (!id) {
-    return <div>Invalid product ID</div>;
-  }
+    const handleClose = () => {
+      setIsImgOpen(false);
+    };
 
   return (
     <div>
-      <APIFetcher url={"/data/Product_Garment.json"}>
+      
+      <APIFetcher url={"/data/Product_PETech.json"}>
         {(products) => {
           // 確保 id 已初始化後再執行篩選
           const product = Array.isArray(products)
-            ? products.find((item) => item.tProductStyleSysCode === id)
+            ? products.find((item) => item.tArticleNo === id)
             : null;
 
           // 如果找不到產品，顯示錯誤訊息或空狀態
@@ -48,36 +36,11 @@ export default function ProductPage({ params }) {
             return <div>Product not found</div>;
           }
 
-          // 檢查 fabric 是否正在載入
-          if (fabricLoading) {
-            return <div>Loading fabric details...</div>;
-          }
-
-          // 檢查 fabric 載入是否有錯誤
-          if (fabricError) {
-            console.error("Fabric fetch error:", fabricError);
-            // 仍可渲染產品資訊，但 fabric 相關欄位使用預設值
-          }
-
-          // 查找匹配的 fabric 資料
-          const fabric = Array.isArray(fabricDetails)
-            ? fabricDetails.find(
-                (item) => item.tFabricCode === product.tFabricCode
-              ) || null
-            : null;
-
           // 定義項目變數
-          const image = product?.tProductStylePicCode;
-          const name = product?.tStyleName;
-          const styleNo = product?.tProductStyleCode;
+          const image = product?.tProductPETechPicCode;
+          const styleNo = product?.tArticleNo;
           const description = product?.tDescription;
-          const fabricCode = product?.tFabricCode;
-          const size = product?.tSize;
-          // 確保所有依賴 fabric 的變數都在 fabric 定義之後
-          const fabricType = fabric?.tFabricType;
-          const constructure = fabric?.tFabricConstructionCode;
-          const composition = fabric?.tFabricComposition;
-          const fabricFunction = fabric?.tFabricFunctionCode;
+          const PEtech = product?.tTechCode;
 
           const firstImage = image ? image[0] : null;
           const restImages = Array.isArray(image) ? image.slice(1) : [];
@@ -124,31 +87,16 @@ export default function ProductPage({ params }) {
                 </section>
                 {/* 文字區塊 */}
                 <section className="info-section">
-                  <h2>{name?.toUpperCase()}</h2>
-                  <h3>STYLE NO // {styleNo?.toUpperCase()}</h3>
+                  <h3>ARTICLE NO // {styleNo?.toUpperCase()}</h3>
                   <p>{description?.toUpperCase()}</p>
                   <ul className="info-list-container">
                     <li>
-                      <h4>SIZE - </h4>
-                      <p>{size?.toUpperCase()}</p>
-                    </li>
-                    <li>
-                      <h4>FABRIC NO. - </h4>
-                      <p>{fabricCode?.toUpperCase()}</p>
-                    </li>
-                    <li>
-                      <h4>MATERIAL - </h4>
-                      <p>{fabricType?.toUpperCase()}</p>
-                    </li>
-                    <li>
-                      <h4>CONSTRUCTURE - </h4>
-                      <p>{constructure?.toUpperCase()}</p>
-                    </li>
-                    <li>
-                      <h4>FUNCTION - </h4>
-                      {fabricFunction?.map((item, index) => (
-                        <p key={`${item}-${index}`}>{item.toUpperCase()}</p>
+                      <h4>TECHNIQUES // </h4>
+                       <ul className='mx-2 '>
+                      {PEtech?.map((item, index) => (
+                        <li key={`${item}-${index}`}>{item.toUpperCase()}</li>
                       ))}
+                         </ul>
                     </li>
                   </ul>
                 </section>
