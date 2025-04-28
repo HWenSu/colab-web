@@ -32,7 +32,7 @@ const Print = () => {
                   products.map((product) => (
                     <Gallery
                       key={product.tArticleNo}
-                      images={product.tProductPETechPicCode}
+                      images={product.tFilePath}
                     />
                   ))}
               </div>

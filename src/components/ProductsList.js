@@ -11,10 +11,7 @@ const ProductsList = ({url}) => {
             {products &&
               products.map((product) => (
                 <ProductCard
-                  key={
-                    product.tProductStyleSysCode ||
-                    product.tProductPETechPicCode
-                  }
+                  key={product.tFilePath || product.tFilePath}
                   product={product}
                 />
               ))}

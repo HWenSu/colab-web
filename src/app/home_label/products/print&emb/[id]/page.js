@@ -37,7 +37,7 @@ export default function ProductPage({ params }) {
           }
 
           // 定義項目變數
-          const image = product?.tProductPETechPicCode;
+          const image = product?.tFilePath;
           const styleNo = product?.tArticleNo;
           const description = product?.tDescription;
           const PEtech = product?.tTechCode;

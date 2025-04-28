@@ -67,7 +67,7 @@ export default function ProductPage({ params }) {
             : null;
 
           // 定義項目變數
-          const image = product?.tProductStylePicCode;
+          const image = product?.tFilePath;
           const name = product?.tStyleName;
           const styleNo = product?.tProductStyleCode;
           const description = product?.tDescription;

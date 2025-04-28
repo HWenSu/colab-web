@@ -3,10 +3,7 @@ import Link from "next/link";
 
 const ProductCard = ({ product }) => {
   
-  console.log(product)
-  
-  const firstImage =
-    product.tProductStylePicCode?.[0] || product.tProductPETechPicCode[0]; ;
+  const firstImage = product.tFilePath?.[0] || product.tFilePath[0]; ;
   const productName = product.tStyleName?.toUpperCase() || product.tArticleNo ;
   // const constructure = product.constructure?.toUpperCase();
   const description = product.tDescription?.toUpperCase();
