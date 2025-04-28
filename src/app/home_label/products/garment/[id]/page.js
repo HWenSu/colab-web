@@ -9,8 +9,6 @@ export default function ProductPage({ params }) {
   const resolvedParams = use(params); // 解包 Promise
   const id = resolvedParams?.id; // 安全存取 id，防止 undefined
 
-  const [product, setProduct] = useState(null);
-  const [fabric, setFabric] = useState(null);
   const [isImgOpen, setIsImgOpen] = useState(false);
   const [clickedIndex, setClickedIndex] = useState(0);
 
@@ -47,6 +45,11 @@ export default function ProductPage({ params }) {
           return (
             <APIFetcher url={"/data/Product_Fabric.json"}>
               {(fabricDetails) => {
+                // 檢查 fabricDetails 是否已載入
+                if (!fabricDetails || fabricDetails.length === 0) {
+                  return <div>Loading fabric details...</div>;
+                }
+
                 const fabric = Array.isArray(fabricDetails)
                   ? fabricDetails.find(
                       (item) => item.tFabricCode === product.tFabricCode
@@ -128,7 +131,7 @@ export default function ProductPage({ params }) {
                           </li>
                           <li>
                             <h4>MATERIAL - </h4>
-                            <p>{fabric?.fabricType?.toUpperCase()}</p>
+                            <p>{fabric.fabricType.toUpperCase()}</p>
                           </li>
                           <li>
                             <h4>CONSTRUCTURE - </h4>
@@ -147,7 +150,7 @@ export default function ProductPage({ params }) {
                       {/* 點擊圖片彈出輪播圖 */}
                       {isImgOpen && (
                         <ImageCarousel
-                          images={product.image}
+                          images={image}
                           handleClose={handleClose}
                           clickedIndex={clickedIndex}
                         />

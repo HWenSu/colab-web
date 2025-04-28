@@ -2,20 +2,20 @@ import Image from "next/image";
 import Link from "next/link";
 
 const ProductCard = ({ product }) => {
-  const firstImage = product.image[0]
-  const productName = product.name.toUpperCase();
+  const firstImage = product.tProductStylePicCode[0];
+  const productName = product.tStyleName.toUpperCase();
   const constructure = product.constructure?.toUpperCase();
-  const description = product.description?.toUpperCase();
+  const description = product.tDescription?.toUpperCase();
 
 
   return (
     <li className="product-card">
-      <Link href={`/products/${product.id}`}>
+      <Link href={`/home_label/products/garment/${product.tProductStyleSysCode}`}>
         <div className="product-img-container">
           <Image
             src={firstImage}
             className=""
-            alt={product.id}
+            alt={product.tProductStyleCode}
             width={300}
             height={40}
           />
@@ -24,10 +24,10 @@ const ProductCard = ({ product }) => {
           <div>
             <h3>{productName}</h3> // {product.style_no}
           </div>
-          <p>{constructure && constructure}</p>
+          {/* <p>{constructure && constructure}</p> */}
         </div>
         <div className="description">
-          <p>{description&& description}</p>
+          <p>{description && description}</p>
         </div>
       </Link>
     </li>

@@ -6,18 +6,18 @@ const CategoryCard = ({cursorActive}) => {
 const categoryList = [
   {
     name: "MEN'S",
-    imgUrl: "/image/category-men.png",
-    linkUrl: "/products/men",
+    imgUrl: "/image/OtherPages/Category/category-men.png",
+    linkUrl: "/home_label/products/garment/men",
   },
   {
     name: "WOMEN'S",
-    imgUrl: "/image/category-woman.png",
-    linkUrl: "/products/women",
+    imgUrl: "/image/OtherPages/Category/category-woman.png",
+    linkUrl: "/home_label/products/garment/women",
   },
   {
     name: "PRINT & EMB",
-    imgUrl: "/image/category-print.png",
-    linkUrl: "/products/print&emb",
+    imgUrl: "/image/OtherPages/Category/category-print.png",
+    linkUrl: "/home_label/products/print&emb",
   },
 ];
 

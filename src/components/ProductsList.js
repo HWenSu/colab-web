@@ -10,7 +10,10 @@ const ProductsList = ({url}) => {
           <ul className="products-list-container">
             {products &&
               products.map((product) => (
-                <ProductCard key={product.id} product={product} />
+                <ProductCard
+                  key={product.tProductStyleSysCode}
+                  product={product}
+                />
               ))}
           </ul>
         )}
