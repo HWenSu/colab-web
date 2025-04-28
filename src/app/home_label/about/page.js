@@ -18,7 +18,7 @@ const page = () => {
       {/* 主介紹區 */}
       <section className="about-design-section">
         <Image
-          src="/image/about-bg.png"
+          src="/image/OtherPages/About/about-bg.png"
           alt="about-bg"
           width={400}
           height={200}
@@ -29,7 +29,7 @@ const page = () => {
           onMouseEnter={() => handleCursor("Hover")}
           onMouseLeave={resetCursor}
         >
-          <ShaderImg imgUrl={"/image/about.png"} />
+          <ShaderImg imgUrl={"/image/OtherPages/About/about.png"} />
         </div>
         <div className="about-items-container">
           <div className="about-item">
@@ -110,7 +110,7 @@ const page = () => {
           <div className="absolute w-full">
             <Image
               className="w-full opacity-60 "
-              src="/image/org-bg.png"
+              src="/image/OtherPages/About/org-bg.png"
               alt="org-bg"
               width={500}
               height={400}
@@ -121,48 +121,48 @@ const page = () => {
               name="JENNIFER"
               lastName="LEE"
               jobPosition="DESIGNER ASSISTANT"
-              imgUrl="/image/org-jen.png"
+              imgUrl="/image/OtherPages/About/org-jen.png"
               yPosition="14"
             />
             <StaffCard
               name="PENNIE"
               lastName="CHEONG"
               jobPosition="SENIOR DESIGNER"
-              imgUrl="/image/org-pennie.png"
+              imgUrl="/image/OtherPages/About/org-pennie.png"
               yPosition="9"
             />
             <StaffCard
               name="ETHAN"
               lastName="CHOU"
               jobPosition="SENIOR DESIGNER"
-              imgUrl="/image/org-ethan.png"
+              imgUrl="/image/OtherPages/About/org-ethan.png"
               yPosition="6"
             />
             <StaffCard
               name="YANG"
               lastName="CHEN"
               jobPosition="DESIGN MANAGER"
-              imgUrl="/image/org-yang.png"
+              imgUrl="/image/OtherPages/About/org-yang.png"
             />
             <StaffCard
               name="SUNNY"
               lastName="HUANG"
               jobPosition="SENIOR DESIGNER"
-              imgUrl="/image/org-sunny.png"
+              imgUrl="/image/OtherPages/About/org-sunny.png"
               yPosition="7"
             />
             <StaffCard
               name="ELVA"
               lastName="SU"
               jobPosition="SENIOR DESIGNER"
-              imgUrl="/image/org-elva.png"
+              imgUrl="/image/OtherPages/About/org-elva.png"
               yPosition="5"
             />
             <StaffCard
               name="REKI"
               lastName="CHANG"
               jobPosition="DESIGNER ASSISTANT"
-              imgUrl="/image/org-reki.png"
+              imgUrl="/image/OtherPages/About/org-reki.png"
               yPosition="10"
             />
           </div>
@@ -208,7 +208,7 @@ const page = () => {
         </div>
         <div className="relative mt-[10rem] h-[30rem] overflow-hidden">
           <Image
-            src="/image/about-bottom-bg.png"
+            src="/image/OtherPages/About/about-bottom-bg.png"
             alt="about-bottom-bg.png"
             width={1000}
             height={800}

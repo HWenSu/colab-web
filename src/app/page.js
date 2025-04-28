@@ -26,7 +26,7 @@ export default function Home() {
         onMouseLeave={resetCursor}
       >
         <video
-          src={"/video/Co-web.mp4"}
+          src={"/video/OtherPages/Co-web.mp4"}
           autoPlay
           muted
           loop
@@ -54,7 +54,9 @@ export default function Home() {
           onMouseEnter={() => handleCursor("hover")}
           onMouseLeave={resetCursor}
         >
-          <ShaderImg imgUrl={"/image/TNB_background_removed(3).png"} />
+          <ShaderImg
+            imgUrl={"/image/OtherPages/Hero/TNB_background_removed(3).png"}
+          />
         </div>
         <div className="circle-item"></div>
         <div className="hero-grid">
@@ -63,7 +65,7 @@ export default function Home() {
             <Link href="/products">
               {/* <p>MEN&apos;S</p> */}
               <Image
-                src="/image/hero-man.png"
+                src="/image/OtherPages/Hero/hero-man.png"
                 alt="mens"
                 width={300}
                 height={400}
@@ -73,7 +75,7 @@ export default function Home() {
             <Link href="/products">
               {/* <p>WOMEN&apos;S</p> */}
               <Image
-                src="/image/hero-woman.png"
+                src="/image/OtherPages/Hero/hero-woman.png"
                 alt="mens"
                 width={300}
                 height={400}
@@ -134,7 +136,7 @@ export default function Home() {
             </div>
             <div className="animate-scroll-broaden w-[10rem] overflow-hidden">
               <Image
-                src="/image/The New Black 003.jpeg"
+                src="/image/OtherPages/Hero/The New Black 003.jpeg"
                 alt="mens"
                 width={300}
                 height={400}
@@ -146,7 +148,7 @@ export default function Home() {
         <div className=" bg-[#232323] z-10 py-15 rounded-t-[8rem]  mx-[2rem]">
           <IntroList
             invert={"invert"}
-            videoUrl={"/video/Colab2022.mp4"}
+            videoUrl={"/video/OtherPages/Colab2022.mp4"}
             listItem={[
               "Create Volume with Print",
               "Soft Texture",

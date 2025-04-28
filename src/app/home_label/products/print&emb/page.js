@@ -50,7 +50,7 @@ const page = () => {
       {/* 技法選單區塊 */}
       <section className="h-[100vh] relative">
         <IntroList
-          videoUrl={"/video/Colab2022.mp4"}
+          videoUrl={"/video/OtherPages/Colab2022.mp4"}
           listItem={[
             "Create Volume with Print",
             "Soft Texture",
@@ -60,7 +60,7 @@ const page = () => {
       </section>
       {/* 滾動式差背景圖片區塊 */}
       <div className="relative w-full h-[70vh] overflow-hidden bg-black">
-        <div className="w-full h-full bg-[url('/image/print-hero.jpg')] bg-cover bg-center bg-fixed">
+        <div className="w-full h-full bg-[url('/image/OtherPages/PETech/print-hero.jpg')] bg-cover bg-center bg-fixed">
           <div className="w-full h-full flex items-center justify-center text-white text-4xl font-bold">
             Runway Style
           </div>

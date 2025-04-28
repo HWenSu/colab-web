@@ -18,7 +18,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={` ${quantico.variable} antialiased`}>
+      <body className={`${quantico.variable} antialiased`}>
         <Navbar />
         <main className="min-h-[100vh]">{children}</main>
         <Footer />

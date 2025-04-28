@@ -9,7 +9,7 @@ export default function Contact() {
           {/* CON */}
           <div className="contact-grid-items flex justify-around items-center ">
             <Image
-              src="/image/CONTACT 2-02.png"
+              src="/image/OtherPages/Contact/CONTACT 2-02.png"
               alt="con"
               width={400}
               height={200}
@@ -39,7 +39,7 @@ export default function Contact() {
                 <h2 className="text-xl">charlietsai@fenc.com</h2>
               </div>
               <Image
-                src="/image/CONTACT-arrow.png"
+                src="/image/OtherPages/Contact/CONTACT-arrow.png"
                 alt="CONTACT-arrow.png"
                 width={90}
                 height={80}
@@ -48,7 +48,7 @@ export default function Contact() {
           </div>
           <div className="contact-grid-items pr-[20rem]  ">
             <Image
-              src="/image/CONTACT-tact.png"
+              src="/image/OtherPages/Contact/CONTACT-tact.png"
               alt="CONTACT-tact.png"
               width={400}
               height={200}
