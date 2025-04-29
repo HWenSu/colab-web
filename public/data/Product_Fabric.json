@@ -2,8 +2,8 @@
   {
     "tFabricCode":"NF2G0027-AA03AC",
     "tFabricType": "Knit",
-    "tFabricConstructionCode": "SinglePique",
+    "tFabricConstructionName": "SinglePique",
     "tFabricComposition": "89% Nylon 66, 11% Spandex",
-    "tFabricFunctionCode": ["4-Way Stretch"]
+    "tFabricFunctionName": ["4-Way Stretch"]
   }
 ]

@@ -24,14 +24,14 @@ const ProductCard = ({ product }) => {
           <Image
             src={firstImage}
             className=""
-            alt={product.tProductStyleCode || product.tArticleNo}
+            alt={product.tProductStyleCode || product.tProductStyleCode}
             width={300}
             height={40}
           />
         </div>
         <div className="title">
           <div>
-            <h3>{productName}</h3> / { product.style_no}
+            <h3>{productName}</h3> / {product.tProductStyleCode}
           </div>
           {/* <p>{constructure && constructure}</p> */}
         </div>

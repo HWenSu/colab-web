@@ -40,7 +40,7 @@ export default function ProductPage({ params }) {
           const image = product?.tFilePath;
           const styleNo = product?.tArticleNo;
           const description = product?.tDescription;
-          const PEtech = product?.tTechCode;
+          const PEtech = product?.tTechName;
 
           const firstImage = image ? image[0] : null;
           const restImages = Array.isArray(image) ? image.slice(1) : [];

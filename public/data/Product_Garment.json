@@ -4,14 +4,14 @@
     "tProductStyleCode": "6KCO2212",
     "tSex": "Women",
     "tSize": "S",
-    "tColorWayCode": "Blue",
+    "tColorWayName": "Blue",
     "tStyleName": "Women's ASY Layered Top",
-    "tStyleTypeCode": "Legging",
+    "tStyleTypeName": "Legging",
     "tFabricCode": "NF2G0027-AA03AC",
-    "tStyleGroupCode": "Yoga",
+    "tStyleGroupName": "Yoga",
     "tSeasonYear": "26",
     "tSeason":"SS",
-    "tNewArrival":true,
+    "tNewArrival":1,
     "tDescription": "This nylon stretch minimalist jegging is just right for making moves on and beyond the mat. Made with a second-skin fit and feel, no side seam.",
     "tFilePath":[
       "/image/Garment/6KCO2212/pic_6KCO2212_1.jpeg",
@@ -28,14 +28,14 @@
     "tProductStyleCode": "6WCO2004",
     "tSex": "Men",
     "tSize": "M",
-    "tColorWayCode": "Pink",
+    "tColorWayName": "Pink",
     "tStyleName": "Men's Non-Sew Shirt",
-    "tStyleTypeCode": "Shirt",
+    "tStyleTypeName": "Shirt",
     "tFabricCode": "FVF3059PNF",
-    "tStyleGroupCode": "City Commuter",
+    "tStyleGroupName": "City Commuter",
     "tSeasonYear": "26",
     "tSeason":"FH",
-    "tNewArrival":true,
+    "tNewArrival":1,
     "tDescription": "The Nylon 6 stretch design shirt features open holes at the sleeves and back for ventilation, utilizing whole garment non-sew craftsmanship.",
     "tFilePath":[
       "/image/Garment/6WCO2004/pic_6WCO2004_1.jpeg",
@@ -54,3 +54,4 @@
     ]
   }
 ]
+

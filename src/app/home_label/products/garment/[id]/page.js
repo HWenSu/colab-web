@@ -75,9 +75,9 @@ export default function ProductPage({ params }) {
           const size = product?.tSize;
           // 確保所有依賴 fabric 的變數都在 fabric 定義之後
           const fabricType = fabric?.tFabricType;
-          const constructure = fabric?.tFabricConstructionCode;
+          const constructure = fabric?.tFabricConstructionName;
           const composition = fabric?.tFabricComposition;
-          const fabricFunction = fabric?.tFabricFunctionCode;
+          const fabricFunction = fabric?.tFabricFunctionName;
 
           const firstImage = image ? image[0] : null;
           const restImages = Array.isArray(image) ? image.slice(1) : [];
