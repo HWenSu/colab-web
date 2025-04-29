@@ -11,7 +11,7 @@
     "tStyleGroupName": "Yoga",
     "tSeasonYear": "26",
     "tSeason":"SS",
-    "tNewArrival":1,
+    "tNewArrival":true,
     "tDescription": "This nylon stretch minimalist jegging is just right for making moves on and beyond the mat. Made with a second-skin fit and feel, no side seam.",
     "tFilePath":[
       "/image/Garment/6KCO2212/pic_6KCO2212_1.jpeg",
@@ -35,7 +35,7 @@
     "tStyleGroupName": "City Commuter",
     "tSeasonYear": "26",
     "tSeason":"FH",
-    "tNewArrival":1,
+    "tNewArrival":true,
     "tDescription": "The Nylon 6 stretch design shirt features open holes at the sleeves and back for ventilation, utilizing whole garment non-sew craftsmanship.",
     "tFilePath":[
       "/image/Garment/6WCO2004/pic_6WCO2004_1.jpeg",
