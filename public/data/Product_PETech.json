@@ -10,5 +10,53 @@
     "/image/PETech/5BF-P04/pic_5BF-P04_4.png",
     "/image/PETech/5BF-P04/pic_5BF-P04_5.png"
   ]
+  },
+  {
+  "tArticleNo":"6BF-N-01",
+  "tDescription":"The design uses high puff print to mimic the look of a ribbon stitched onto the fabric, creating a raised and tactile effect. The stitching lines are printed using semi-rubber print to simulate the texture and appearance of actual sewing.",
+  "tTechName":["Semi-Rubber","Puff"],
+  "tFilePath":[
+    "/image/PETech/6BF-N-01/pic_6BF-N-01_1.png",
+    "/image/PETech/6BF-N-01/pic_6BF-N-01_2.png",
+    "/image/PETech/6BF-N-01/pic_6BF-N-01_3.png",
+    "/image/PETech/6BF-N-01/pic_6BF-N-01_4.png",
+    "/image/PETech/6BF-N-01/pic_6BF-N-01_5.png"
+  ]
+  },
+  {
+  "tArticleNo":"5BS-P08",
+  "tDescription":"The pattern is designed to mimic the effect of frosted glass, placed as a semi-transparent overlay in front of the gradient text to create a layered and blurred visual impression. The pattern is designed to mimic the effect of frosted glass, placed as a semi-transparent overlay in front of the gradient text to create a layered and blurred visual impression.",
+  "tTechName":["Digital Print","Glossing Print"],
+  "tFilePath":[
+    "/image/PETech/5BS-P08/pic_5BS-P08_1.png",
+    "/image/PETech/5BS-P08/pic_5BS-P08_2.png",
+    "/image/PETech/5BS-P08/pic_5BS-P08_3.png",
+    "/image/PETech/5BS-P08/pic_5BS-P08_4.png",
+    "/image/PETech/5BS-P08/pic_5BS-P08_5.png"
+  ]
+  },
+  {
+  "tArticleNo":"6BF-N-02",
+  "tDescription":"The lace effect is achieved by layering print and embroidery. While the printed base presents the delicate lace motifs, the embroidery—executed with satin stitch—emphasizes mesh areas in different scales, enhancing the texture and giving a three-dimensional feel to the design.",
+  "tTechName":["Semi-Rubber","Satin Stitches"],
+  "tFilePath":[
+    "/image/PETech/6BF-N-02/pic_6BF-N-02_1.png",
+    "/image/PETech/6BF-N-02/pic_6BF-N-02_2.png",
+    "/image/PETech/6BF-N-02/pic_6BF-N-02_3.png",
+    "/image/PETech/6BF-N-02/pic_6BF-N-02_4.png",
+    "/image/PETech/6BF-N-02/pic_6BF-N-02_5.png"
+  ]
+  },
+  {
+  "tArticleNo":"6BF-P07",
+  "tDescription":"The design uses print to create a dynamic motion blur effect, with varying directions of blur to convey movement and energy. In addition, two-tone HD printing is applied to bold lettering, producing tactile surface textures that contrast with the blurred background. This combination adds both visual depth and material interest to the overall design.",
+  "tTechName":["Semi-Rubber","Two Tone Colors High Density Print"],
+  "tFilePath":[
+    "/image/PETech/6BF-P07/pic_6BF-P07_1.png",
+    "/image/PETech/6BF-P07/pic_6BF-P07_2.png",
+    "/image/PETech/6BF-P07/pic_6BF-P07_3.png",
+    "/image/PETech/6BF-P07/pic_6BF-P07_4.png",
+    "/image/PETech/6BF-P07/pic_6BF-P07_5.png"
+  ]
   }
 ]

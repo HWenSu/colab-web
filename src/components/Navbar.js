@@ -2,7 +2,7 @@
 import {useState, useRef} from "react";
 import Link from "next/link";
 import Image from "next/image";
-
+import Search from "./Search";
 
 const Navbar = () => {
   const [isProductsHover, setIsProductsHover] = useState(false);
@@ -94,10 +94,9 @@ const Navbar = () => {
                         priority
                       />
                     </Link>
-
                     {/* Garment層下拉選單 */}
                     {isGarmentHover && (
-                      <ul className="products-drop-down-container text-white">
+                      <ul className="products-drop-down-container text-white -translate-x-20">
                         <li className="">
                           <Link href="/home_label/products/garment/women">
                             WOMEN
@@ -127,7 +126,9 @@ const Navbar = () => {
             </li>
           </ul>
           <ul className="main-nav ">
-            <li>SEARCH</li>
+            <li>
+              <Search />
+            </li>
             <li>
               <Link href="/home_label/login">LOG IN</Link>
             </li>
@@ -136,10 +137,10 @@ const Navbar = () => {
         </header>
       </div>
       <div
-        className={`dropdown-bg ${isProductsHover ? "scale-y-short" : ""} `}
-      ></div>
-      <div
-        className={`dropdown-bg ${isGarmentHover ? "scale-y-long" : ""} `}
+        className={`dropdown-bg 
+          ${isProductsHover ? "scale-y-short" : ""} 
+          ${isGarmentHover ? "scale-y-long" : ""}
+          `}
       ></div>
     </nav>
   );

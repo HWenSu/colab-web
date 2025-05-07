@@ -2,12 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 
 const ProductCard = ({ product }) => {
-  
-  const firstImage = product.tFilePath?.[0] || product.tFilePath[0]; ;
-  const productName = product.tStyleName?.toUpperCase() || product.tArticleNo ;
-  // const constructure = product.constructure?.toUpperCase();
-  const description = product.tDescription?.toUpperCase();
-
+  const firstImage = product.tFilePath?.[0] || "";
+  const secondImage = product.tFilePath?.[1] || firstImage; // 沒第二張就 fallback 成第一張
+  const productName = product.tStyleName?.toUpperCase() || product.tArticleNo;
 
   return (
     <li className="product-card">
@@ -21,22 +18,26 @@ const ProductCard = ({ product }) => {
         }
       >
         <div className="product-img-container">
+          {/* 第一張圖片 */}
           <Image
             src={firstImage}
-            className=""
-            alt={product.tProductStyleCode || product.tProductStyleCode}
+            alt={product.tProductStyleCode || product.tArticleNo}
             width={300}
             height={40}
+            className="first-img"
+          />
+          {/* 第二張圖片（滑入時推進） */}
+          <Image
+            src={secondImage}
+            alt="product-image-2"
+            fill
+            className="second-img"
           />
         </div>
         <div className="title">
           <div>
             <h3>{productName}</h3> / {product.tProductStyleCode}
           </div>
-          {/* <p>{constructure && constructure}</p> */}
-        </div>
-        <div className="description">
-          <p>{description && description}</p>
         </div>
       </Link>
     </li>

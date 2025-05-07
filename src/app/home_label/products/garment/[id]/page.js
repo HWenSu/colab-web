@@ -67,7 +67,7 @@ export default function ProductPage({ params }) {
             : null;
 
           // 定義項目變數
-          const image = product?.tFilePath;
+          const image = product?.tFilePath.filter(path => path.includes("image"))
           const name = product?.tStyleName;
           const styleNo = product?.tProductStyleCode;
           const description = product?.tDescription;
@@ -79,8 +79,15 @@ export default function ProductPage({ params }) {
           const composition = fabric?.tFabricComposition;
           const fabricFunction = fabric?.tFabricFunctionName;
 
+          //影片路徑篩選
+          const videoUrl = product?.tFilePath.find((path) =>
+            path.includes("video")
+          );
+          
+          // 圖片路徑篩選
           const firstImage = image ? image[0] : null;
           const restImages = Array.isArray(image) ? image.slice(1) : [];
+          
           return (
             firstImage && (
               <div className="product-info-page">
@@ -112,14 +119,14 @@ export default function ProductPage({ params }) {
                         />
                       </div>
                     ))}
-                    {/* <video
-                      src={product.video}
+                    <video
+                      src={videoUrl}
                       controls
                       autoPlay
                       muted
                       loop
                       className="w-full col-span-2"
-                    /> */}
+                    />
                   </div>
                 </section>
                 {/* 文字區塊 */}
@@ -139,6 +146,10 @@ export default function ProductPage({ params }) {
                     <li>
                       <h4>MATERIAL - </h4>
                       <p>{fabricType?.toUpperCase()}</p>
+                    </li>
+                    <li>
+                      <h4>COMPOSITION - </h4>
+                      <p>{composition?.toUpperCase()}</p>
                     </li>
                     <li>
                       <h4>CONSTRUCTURE - </h4>

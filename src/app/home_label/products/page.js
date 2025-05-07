@@ -47,6 +47,7 @@ const page = () => {
       <CategoryCard />
       {/* 所有款式選染 */}
       <ProductsList url={"/data/Product_Garment.json"} />
+      <ProductsList url={"/data/Product_PETech.json"} />
     </div>
   );
 };

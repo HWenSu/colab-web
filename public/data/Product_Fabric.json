@@ -3,7 +3,70 @@
     "tFabricCode":"NF2G0027-AA03AC",
     "tFabricType": "Knit",
     "tFabricConstructionName": "SinglePique",
-    "tFabricComposition": "89% Nylon 66, 11% Spandex",
-    "tFabricFunctionName": ["4-Way Stretch"]
+    "tFabricComposition": "86% Recycle Nylon, 14% Spandex",
+    "tFabricFunctionName": ["UV protection"]
+  },
+  {
+    "tFabricCode":"FVF3059PNF",
+    "tFabricType": "Woven",
+    "tFabricConstructionName": "Plain",
+    "tFabricComposition": "85% Nylon 6, 15% Spandex",
+    "tFabricFunctionName": ["4-Way Stretch", "DWR"]
+  },
+  {
+    "tFabricCode":"FVF4353DC6RRLFA166",
+    "tFabricType": "Woven",
+    "tFabricConstructionName": "Lamination",
+    "tFabricComposition": "64% Cordura, 26% Nylon 66, 10% Spandex",
+    "tFabricFunctionName": ["4-Way Stretch", "DWR", "2L white membrane"]
+  },
+  {
+    "tFabricCode":"NF3S0021-AA01AC",
+    "tFabricType": "Knit",
+    "tFabricConstructionName": "Double Pique",
+    "tFabricComposition": "76% Recycle Nylon, 24% Spandex",
+    "tFabricFunctionName": [""]
+  },
+  {
+    "tFabricCode":"FVS3012UMP-OK",
+    "tFabricType": "Woven",
+    "tFabricConstructionName": "Plain",
+    "tFabricComposition": "100% Polyester",
+    "tFabricFunctionName": ["Non-stretch"]
+  },
+  {
+    "tFabricCode":"PE2G0002-AA01AV",
+    "tFabricType": "Knit",
+    "tFabricConstructionName": "Double Pique",
+    "tFabricComposition": "100% Polyester",
+    "tFabricFunctionName": ["Mechanical stretch"]
+  },
+  {
+    "tFabricCode":"RP2M0102-WP01AT",
+    "tFabricType": "Knit",
+    "tFabricConstructionName": "Single Jersey",
+    "tFabricComposition": "100% Recycle Polyester",
+    "tFabricFunctionName": ["Wicking"]
+  },
+  {
+    "tFabricCode":"RS2U0044-PE02AT",
+    "tFabricType": "Knit",
+    "tFabricConstructionName": "Jacquard",
+    "tFabricComposition": "96% Recycle Polyester, 4% Spandex",
+    "tFabricFunctionName": ["Peaching"]
+  },
+  {
+    "tFabricCode":"RS2G0185-WP01AT",
+    "tFabricType": "Knit",
+    "tFabricConstructionName": "Double Pique",
+    "tFabricComposition": "79% Recycle Polyester, 21% Spandex",
+    "tFabricFunctionName": ["Wicking"]
+  },
+  {
+    "tFabricCode":"FVF4239ENFK04",
+    "tFabricType": "Woven",
+    "tFabricConstructionName": "Plain",
+    "tFabricComposition": "63% Nylon, 26%Polyester, 11% Spandex",
+    "tFabricFunctionName": ["DWR", "4-Way Stretch"]
   }
 ]
