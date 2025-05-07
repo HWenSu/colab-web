@@ -44,7 +44,7 @@ const Navbar = () => {
           <Link href="/" className="logo-wrap">
             <Image
               className="dark:invert" //深色模式反轉顏色
-              src="/colab.svg"
+              src="/svg/colab.svg"
               alt="colab logo"
               width={50}
               height={38}
@@ -62,7 +62,7 @@ const Navbar = () => {
                 <span className="mr-2">PRODUCTS</span>
                 <Image
                   className="invert "
-                  src="/downArrow.svg"
+                  src="/svg/downArrow.svg"
                   alt="dropdown-icon"
                   width={10}
                   height={5}
@@ -87,7 +87,7 @@ const Navbar = () => {
                       <span>GARMENT</span>
                       <Image
                         className="invert ml-1"
-                        src="/downArrow.svg"
+                        src="/svg/downArrow.svg"
                         alt="dropdown-icon"
                         width={10}
                         height={5}

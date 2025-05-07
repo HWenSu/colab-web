@@ -34,7 +34,7 @@ const About = () => {
         <div className="about-items-container">
           <div className="about-item">
             <Image
-              src="/decorationArrow.svg"
+              src="/svg/decorationArrow.svg"
               alt="deco arrow"
               width={20}
               height={10}
@@ -45,7 +45,7 @@ const About = () => {
             </div>
             <Image
               className="col-start-4 rotate-270"
-              src="/decorationArrow.svg"
+              src="/svg/decorationArrow.svg"
               alt="deco arrow"
               width={20}
               height={10}
@@ -67,7 +67,7 @@ const About = () => {
           <div className="about-item">
             <Image
               className="about-item-center"
-              src="/decorationSlash.svg"
+              src="/svg/decorationSlash.svg"
               alt="decoration slash"
               width={60}
               height={40}
@@ -89,7 +89,7 @@ const About = () => {
       </section>
       <section className="max-w-[1980px] px-4 mx-auto org-chart">
         <Image
-          src="/decorationArrow.svg"
+          src="/svg/decorationArrow.svg"
           alt="deco arrow"
           width={20}
           height={10}
@@ -168,14 +168,14 @@ const About = () => {
           </div>
           <div className="">
             <Image
-              src="/decorationArrow.svg"
+              src="/svg/decorationArrow.svg"
               alt="deco arrow"
               width={20}
               height={10}
               className="m-auto pt-[50vh]"
             />
             <Image
-              src="/decorationArrow.svg"
+              src="/svg/decorationArrow.svg"
               alt="deco arrow"
               width={20}
               height={10}

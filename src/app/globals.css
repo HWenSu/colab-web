@@ -54,7 +54,7 @@
   --popover-foreground: oklch(0.13 0.028 261.692);
   --primary: #323232;
   --primary-foreground: oklch(0.985 0.002 247.839);
-  --secondary: #00fbff;
+  --secondary: #01ffec;
   --secondary-foreground: oklch(0.21 0.034 264.665);
   --muted: oklch(0.967 0.003 264.542);
   --muted-foreground: oklch(0.551 0.027 264.364);
@@ -86,9 +86,9 @@
   --card-foreground: oklch(0.985 0.002 247.839);
   --popover: oklch(0.21 0.034 264.665);
   --popover-foreground: oklch(0.985 0.002 247.839);
-  --primary: oklch(0.928 0.006 264.531);
+  --primary: #01ffec;
   --primary-foreground: oklch(0.21 0.034 264.665);
-  --secondary: oklch(0.278 0.033 256.848);
+  --secondary: #01ffec;
   --secondary-foreground: oklch(0.985 0.002 247.839);
   --muted: oklch(0.278 0.033 256.848);
   --muted-foreground: oklch(0.707 0.022 261.325);
@@ -342,7 +342,7 @@
 }
 
 .dropdown-bg {
-  @apply fixed inset-0 w-full max-h-0 z-[800] origin-top bg-primary/95 backdrop-blur-sm transition-all duration-300 ease-in-out;
+  @apply fixed inset-0 w-full max-h-0 z-[800] origin-top bg-black/70 backdrop-blur-sm transition-all duration-300 ease-in-out;
 }
 
 .scale-y-short {

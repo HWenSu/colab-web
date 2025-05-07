@@ -6,7 +6,7 @@ const Footer = () => {
     <div className="bg-black flex text-white justify-between items-center px-[4rem] h-[5rem]">
       <div className="w-[3rem]">
         <Image
-          src="/colab.svg"
+          src="/svg/colab.svg"
           alt="colab logo"
           width={20}
           height={10}
@@ -16,7 +16,7 @@ const Footer = () => {
       <p>© 2025 All rights reserved COLAB.</p>
       <div className="w-[15rem]">
         <Image
-          src="/fe.svg"
+          src="/svg/fe.svg"
           alt="fe logo"
           width={20}
           height={10}

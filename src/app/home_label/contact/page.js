@@ -29,7 +29,7 @@ export default function Contact() {
               <h3 className="text-xl pr-2">NIKE GSM</h3>
               <Image
                 className="rotate-270"
-                src="/decorationArrow.svg"
+                src="/svg/decorationArrow.svg"
                 alt="decorationArrow.svg"
                 width={20}
                 height={10}

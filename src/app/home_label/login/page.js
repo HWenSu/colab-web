@@ -5,7 +5,7 @@ const Login = () => {
     <div className="bg-black text-white w-full h-screen flex justify-center items-center pt-10">
       <div className="w-[50vw] flex ">
         <Image
-          src="/decorationSlash.svg"
+          src="/svg/decorationSlash.svg"
           alt="decorationSlash.svg"
           width={70}
           height={30}
@@ -15,7 +15,7 @@ const Login = () => {
           <div className=" login-white-border h-[4rem]"></div>
           <div className="flex py-4">
             <Image
-              src="/decorationArrow.svg"
+              src="/svg/decorationArrow.svg"
               alt="deco arrow"
               width={20}
               height={10}
