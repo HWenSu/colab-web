@@ -40,7 +40,7 @@ export default function AddToCartButton({ product, fabric, print, onStatusChange
         <div className="flex gap-2  items-center">
           <p>ADD TO CART</p>
           <Image
-            className=" w-[1.5rem]"
+            className="w-[1.5rem] invert no-invert"
             src={"/svg/addCart.svg"}
             alt="add to cart btn"
             width={50}
@@ -48,7 +48,7 @@ export default function AddToCartButton({ product, fabric, print, onStatusChange
           />
         </div>
       ) : (
-        <Link href={`/home_label/cart`}>
+        <Link href="/home_label/cart">
           <div className="flex gap-2  items-center ">
             <p>IN CART</p>
             <Image

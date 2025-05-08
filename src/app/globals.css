@@ -279,6 +279,16 @@
   @apply w-0 h-0 border-l-10 border-r-10 border-t-12 border-l-transparent border-r-transparent border-b-white mx-auto
 }
 
+/* 彈出框樣式 */
+.popup-container {
+  @apply bg-gray-300/85 backdrop-blur-sm fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40rem] h-[20rem] rounded-lg flex flex-col justify-center items-center 
+}
+
+.popup-container h3 {
+  @apply font-bold text-xl
+}
+
+
 
 /* 圖片特效 */
 .image-container {
@@ -769,7 +779,11 @@
 }
 
 .cart-btn {
-  @apply flex justify-center bg-black text-white items-center max-w-[10rem] px-2 gap-2 py-2 rounded-lg cursor-pointer duration-300 ease-in-out hover:bg-secondary hover:text-black 
+  @apply flex justify-center bg-black text-white items-center max-w-[10rem] px-2 gap-2 py-2 rounded-lg cursor-pointer duration-300 ease-in-out hover:bg-secondary hover:text-black
+}
+
+.cart-btn:hover .no-invert {
+  @apply invert-0
 }
 
 .remove-btn {
@@ -783,6 +797,8 @@
 .remove-btn:hover p {
   @apply block
 }
+
+
 
 .inCart {
   @apply bg-secondary text-black
