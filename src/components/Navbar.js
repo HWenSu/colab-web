@@ -132,6 +132,19 @@ const Navbar = () => {
             <li>
               <Link href="/home_label/login">LOG IN</Link>
             </li>
+            <li>
+              <Link href="/home_label/cart">
+                {" "}
+                <Image
+                  className="invert " //深色模式反轉顏色
+                  src="/svg/cart.svg"
+                  alt="cart"
+                  width={20}
+                  height={20}
+                  priority
+                />
+              </Link>
+            </li>
           </ul>
           {/* 下拉選單背景框 */}
         </header>

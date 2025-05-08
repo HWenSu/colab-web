@@ -2,6 +2,7 @@ import { Quantico } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import GlobalContextProvider from "@/context/GlobalContext";
 
 // 設定 Quantico 字體
 const quantico = Quantico({
@@ -19,9 +20,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${quantico.variable} antialiased`}>
-        <Navbar />
-        <main className="min-h-[100vh]">{children}</main>
-        <Footer />
+        <GlobalContextProvider>
+          <Navbar />
+          <main className="min-h-[100vh]">{children}</main>
+          <Footer />
+        </GlobalContextProvider>
       </body>
     </html>
   );

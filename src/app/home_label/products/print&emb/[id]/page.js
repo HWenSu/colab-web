@@ -3,6 +3,8 @@ import {use, useState} from 'react'
 import Image from "next/image";
 import APIFetcher from "@/components/APIFetcher";
 import ImageCarousel from '@/components/ImageCarousel';
+import AddToCartButton from '@/components/AddToCartButton';
+import RemoveFromCartButton from '@/components/RemoveFromCartButton';
 
 export default function ProductPage({ params }) {
   // 確保 params 被正確解析
@@ -12,18 +14,20 @@ export default function ProductPage({ params }) {
   const [isImgOpen, setIsImgOpen] = useState(false);
   const [clickedIndex, setClickedIndex] = useState(0);
 
-    const handleImgClicked = (index) => {
-      setIsImgOpen(true);
-      setClickedIndex(index);
-    };
+  // 判斷商品是否在購物車內
+  const [isAdd, setIsAdd] = useState(false);
 
-    const handleClose = () => {
-      setIsImgOpen(false);
-    };
+  const handleImgClicked = (index) => {
+    setIsImgOpen(true);
+    setClickedIndex(index);
+  };
+
+  const handleClose = () => {
+    setIsImgOpen(false);
+  };
 
   return (
     <div>
-      
       <APIFetcher url={"/data/Product_PETech.json"}>
         {(products) => {
           // 確保 id 已初始化後再執行篩選
@@ -92,12 +96,21 @@ export default function ProductPage({ params }) {
                   <ul className="info-list-container">
                     <li>
                       <h4>TECHNIQUES // </h4>
-                       <ul className='mx-2 '>
-                      {PEtech?.map((item, index) => (
-                        <li key={`${item}-${index}`}>{item.toUpperCase()}</li>
-                      ))}
-                         </ul>
+                      <ul className="mx-2 ">
+                        {PEtech?.map((item, index) => (
+                          <li key={`${item}-${index}`}>{item.toUpperCase()}</li>
+                        ))}
+                      </ul>
                     </li>
+                    {/* 加入購物車按鈕 */}
+                    <div className="py-8 flex gap-4">
+                      <AddToCartButton
+                        print={product}
+                        onStatusChange={(val) => setIsAdd(val)}
+                      />
+                      {/* 加入購物車才出現remove btn */}
+                      {isAdd && <RemoveFromCartButton print={product} />}
+                    </div>
                   </ul>
                 </section>
                 {/* 點擊圖片彈出輪播圖 */}

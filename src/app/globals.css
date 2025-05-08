@@ -52,10 +52,10 @@
   --card-foreground: oklch(0.13 0.028 261.692);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.13 0.028 261.692);
-  --primary: #323232;
+  --primary: #323232  !important;
   --primary-foreground: oklch(0.985 0.002 247.839);
-  --secondary: #01ffec;
-  --secondary-foreground: oklch(0.21 0.034 264.665);
+  --secondary: #66edfa !important; 
+  --secondary-foreground: oklch(0.92 0.15 189.65);
   --muted: oklch(0.967 0.003 264.542);
   --muted-foreground: oklch(0.551 0.027 264.364);
   --accent: oklch(0.967 0.003 264.542);
@@ -86,10 +86,10 @@
   --card-foreground: oklch(0.985 0.002 247.839);
   --popover: oklch(0.21 0.034 264.665);
   --popover-foreground: oklch(0.985 0.002 247.839);
-  --primary: #01ffec;
+  --primary: #323232;
   --primary-foreground: oklch(0.21 0.034 264.665);
-  --secondary: #01ffec;
-  --secondary-foreground: oklch(0.985 0.002 247.839);
+  --secondary:#66edfa;
+  --secondary-foreground: oklch(0.92 0.15 189.65);
   --muted: oklch(0.278 0.033 256.848);
   --muted-foreground: oklch(0.707 0.022 261.325);
   --accent: oklch(0.278 0.033 256.848);
@@ -342,7 +342,7 @@
 }
 
 .dropdown-bg {
-  @apply fixed inset-0 w-full max-h-0 z-[800] origin-top bg-black/70 backdrop-blur-sm transition-all duration-300 ease-in-out;
+  @apply fixed inset-0 w-full max-h-0 z-[800] origin-top bg-primary/95 backdrop-blur-sm transition-all duration-300 ease-in-out;
 }
 
 .scale-y-short {
@@ -745,4 +745,45 @@
 
 .login-white-border{
   @apply border-white/40 border-b w-full
+}
+
+/* cart page */
+.cart-container{
+  @apply flex flex-col my-8
+}
+
+.cart-container li {
+  @apply border-b grid grid-cols-[1fr_2fr_2fr_1fr_1fr] justify-between items-center px-[2rem] py-4
+}
+
+.cart-container h2 {
+  @apply font-bold text-lg 
+}
+
+.cart-container label {
+  @apply text-lg 
+}
+
+.cart-container label {
+  @apply flex items-center gap-2 p-2
+}
+
+.cart-btn {
+  @apply flex justify-center bg-black text-white items-center max-w-[10rem] px-2 gap-2 py-2 rounded-lg cursor-pointer duration-300 ease-in-out hover:bg-secondary hover:text-black 
+}
+
+.remove-btn {
+  @apply flex justify-center bg-black/40   hover:bg-black hover:text-white
+}
+
+.remove-btn p {
+  @apply hidden 
+}
+
+.remove-btn:hover p {
+  @apply block
+}
+
+.inCart {
+  @apply bg-secondary text-black
 }

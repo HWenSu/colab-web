@@ -4,6 +4,8 @@ import Image from "next/image";
 import APIFetcher from "@/components/APIFetcher";
 import ImageCarousel from '@/components/ImageCarousel';
 import useApiFetch from "@/hooks/useApiFetch";
+import AddToCartButton from '@/components/AddToCartButton';
+import RemoveFromCartButton from '@/components/RemoveFromCartButton';
 
 export default function ProductPage({ params }) {
   // 確保 params 被正確解析
@@ -12,6 +14,10 @@ export default function ProductPage({ params }) {
 
   const [isImgOpen, setIsImgOpen] = useState(false);
   const [clickedIndex, setClickedIndex] = useState(0);
+
+  // 判斷商品是否在購物車內
+  const [isAdd , setIsAdd] = useState(false)
+
 
   // 使用 useApiFetch 載入 Product_Fabric.json
   const {
@@ -73,6 +79,8 @@ export default function ProductPage({ params }) {
           const description = product?.tDescription;
           const fabricCode = product?.tFabricCode;
           const size = product?.tSize;
+          const styleGroup = product?.tStyleGroupName;
+          const styleType = product?.tStyleTypeName;
           // 確保所有依賴 fabric 的變數都在 fabric 定義之後
           const fabricType = fabric?.tFabricType;
           const constructure = fabric?.tFabricConstructionName;
@@ -161,6 +169,21 @@ export default function ProductPage({ params }) {
                         <p key={`${item}-${index}`}>{item.toUpperCase()}</p>
                       ))}
                     </li>
+                    {/* 加入購物車按鈕 */}
+                    <div className="py-8 flex gap-4">
+                      <AddToCartButton
+                        product={product}
+                        fabric={fabric}
+                        onStatusChange={(val) => setIsAdd(val)}
+                      />
+                      {/* 加入購物車才出現remove btn */}
+                      {isAdd && (
+                        <RemoveFromCartButton
+                          product={product}
+                          fabric={fabric}
+                        />
+                      )}
+                    </div>
                   </ul>
                 </section>
                 {/* 點擊圖片彈出輪播圖 */}
