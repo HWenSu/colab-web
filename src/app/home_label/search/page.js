@@ -4,6 +4,9 @@ import { useSearchParams } from "next/navigation";
 import ProductsList from "@/components/ProductsList";
 import useApiFetch from "@/hooks/useApiFetch";
 
+const api_url_path_g = "http://localhost:53866/api/product/garment";
+const api_url_path_pe = "http://localhost:53866/api/product/petech";
+
 export default function SearchPage() {
   const [data, setData] = useState([]);
   const [results, setResults] = useState([]);
@@ -22,13 +25,13 @@ export default function SearchPage() {
     data: garmentDetails,
     loading: garmentLoading,
     error: garmentError,
-  } = useApiFetch("/data/Product_Garment.json");
+  } = useApiFetch(api_url_path_g);
 
   const {
     data: PETechDetails,
     loading: PETechLoading,
     error: PETechError,
-  } = useApiFetch("/data/Product_PETech.json");
+  } = useApiFetch(api_url_path_pe);
 
   //在資料加載完成時格式化
   useEffect(() => {
