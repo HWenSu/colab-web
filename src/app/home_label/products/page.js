@@ -4,6 +4,9 @@ import APIFetcher from "@/components/APIFetcher";
 import Image from "next/image";
 import ProductsList from "@/components/ProductsList";
 
+const api_url_path_g = "http://localhost:53866/api/product/petech"
+const api_url_path_pe = "http://localhost:53866/api/product/petech"
+
 const page = () => {
   return (
     <div>
@@ -46,8 +49,8 @@ const page = () => {
       {/* 大分類卡片 */}
       <CategoryCard />
       {/* 所有款式選染 */}
-      <ProductsList url={"/data/Product_Garment.json"} />
-      <ProductsList url={"/data/Product_PETech.json"} />
+      <ProductsList url={api_url_path_g} />
+      <ProductsList url={api_url_path_pe} />
     </div>
   );
 };

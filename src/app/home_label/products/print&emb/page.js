@@ -7,6 +7,8 @@ import IntroList from "@/components/IntroList";
 import CustomCursor from "@/components/CustomCursor";
 import { useCustomCursor } from "@/hooks/useCustomCursor";
 
+const api_url_path = "http://localhost:53866/api/product/petech"
+
 const Print = () => {
   // 調用自訂義鼠標Hook
   const { cursorActive, cursorText, handleCursor, resetCursor } =
@@ -25,7 +27,7 @@ const Print = () => {
           onMouseEnter={() => handleCursor("Hover")}
           onMouseLeave={resetCursor}
         >
-          <APIFetcher url="/data/Product_PETech.json">
+          <APIFetcher url={api_url_path}>
             {(products) => (
               <div>
                 {products &&
@@ -48,7 +50,7 @@ const Print = () => {
       </section>
       {/* 商品列表區塊 */}
       <section className="my-[10em]">
-        <ProductsList url={"/data/Product_PETech.json"} />
+        <ProductsList url={api_url_path} />
       </section>
       {/* 技法選單區塊 */}
       <section className="h-[100vh] relative">
