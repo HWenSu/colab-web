@@ -2,12 +2,14 @@
 import APIFetcher from "@/components/APIFetcher";
 import ProductCard from "@/components/ProductCard";
 
+const api_url_path = "http://localhost:53866/api/product/garment";
+
 const MenPage = () => {
   return (
     <div className="pt-30">
       {/* 男裝款式選染 */}
       <section>
-        <APIFetcher url={"/data/Product_Garment.json"}>
+        <APIFetcher url={api_url_path}>
           {(products) => {
             const manProducts = products.filter(
               (product) => product.tSex.toLowerCase() === "men"

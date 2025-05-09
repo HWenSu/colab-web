@@ -7,6 +7,9 @@ import useApiFetch from "@/hooks/useApiFetch";
 import AddToCartButton from '@/components/AddToCartButton';
 import RemoveFromCartButton from '@/components/RemoveFromCartButton';
 
+const api_url_path_g = "http://localhost:53866/api/product/garment";
+const api_url_path_f = "http://localhost:53866/api/product/fabric";
+
 export default function ProductPage({ params }) {
   // 確保 params 被正確解析
   const resolvedParams = use(params); // 解包 Promise
@@ -24,7 +27,7 @@ export default function ProductPage({ params }) {
     data: fabricDetails,
     loading: fabricLoading,
     error: fabricError,
-  } = useApiFetch("/data/Product_Fabric.json");
+  } = useApiFetch(api_url_path_f);
 
   const handleImgClicked = (index) => {
     setIsImgOpen(true);
@@ -42,7 +45,7 @@ export default function ProductPage({ params }) {
 
   return (
     <div>
-      <APIFetcher url={"/data/Product_Garment.json"}>
+      <APIFetcher url={api_url_path_g}>
         {(products) => {
           // 確保 id 已初始化後再執行篩選
           const product = Array.isArray(products)
