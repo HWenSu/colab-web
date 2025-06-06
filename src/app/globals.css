@@ -321,7 +321,7 @@
 
 /* 導航列 */
 .navbar-container {
-  @apply w-screen fixed z-[800] text-white text-sm mix-blend-difference;
+  @apply w-screen overflow-hidden fixed z-[800] text-white text-sm mix-blend-difference;
 }
 
 .marquee-container {
@@ -387,7 +387,7 @@
 
 /* 手機版側邊欄 */
 .mobile-sidebar {
-  @apply fixed top-0 right-0 w-[70vw] h-full z-[800] text-white origin-top bg-primary transform transition-transform duration-500 ease-in-out md:hidden
+  @apply fixed top-0 right-0 w-[70vw] h-full z-[800] text-white origin-top bg-primary transform transition-transform duration-300 ease-in-out md:hidden
 }
 
 .mobile-sidebar li {
@@ -532,11 +532,11 @@
 /* Product 頁面 */
 /* Category Card */
 .category-cards-container {
-  @apply flex flex-col sm:flex-row justify-center items-center sm:pt-[20vh];
+  @apply flex flex-col md:flex-row justify-center items-center md:pt-[20vh];
 }
 
 .category-card {
-  @apply relative bg-gray-200 m-[2rem] sm:h-[70vh] sm:w-[30vw] overflow-hidden;
+  @apply relative bg-gray-200 m-[2rem] sm:h-[70vh] sm:w-[29vw] overflow-hidden;
 }
 
 .category-card::after {
@@ -562,11 +562,11 @@
 /* Product 頁面 */
 /* Product Card */
 .products-list-container {
-  @apply grid grid-cols-5 gap-[4rem] px-[4vw] justify-center items-center my-[4rem];
+  @apply grid grid-cols-2 md:grid-cols-5 gap-[4rem] px-[4vw] justify-center items-center my-[4rem];
 }
 
 .product-card {
-  @apply relative w-full h-[22vw];
+  @apply relative w-full h-[30rem] md:h-[22vw];
 }
 
 .product-img-container {

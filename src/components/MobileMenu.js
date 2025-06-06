@@ -2,40 +2,49 @@ import { useState } from "react";
 import MobileMenuContent from "./MobileMenuContent";
 import Link from "next/link";
 import Image from "next/image";
+import useUniqueStyleTypes from "@/hooks/useUniqueStyleTypes";
+
 
 
 const MobileMenu = ({ isMobileMenuOpen, toggleMobileMenu }) => {
+  // 傳入不重複 styeTypeName
+  const styleTypeNameData = useUniqueStyleTypes();
+
   const menuConfig = [
     { id: "main", items: ["NEW ARRIVAL", "PRODUCTS", "ABOUT", "CONTACT"] },
     { id: "products", items: ["ALL ITEMS", "GARMENT", "PRINT & EMB"] },
     { id: "garment", items: ["ALL GARMENT", "WOMEN'S", "MEN'S"] },
-    { id: "women", items: ["ALL", "WOMEN'S", "MEN'S"] },
+    { id: "women", items: [] },
+    { id: "men", items: [] },
   ];
 
-  
+  // 將所有 tSex 對應的 styleTypeName 自動放進 menuConfig 對應 id
+  styleTypeNameData.forEach(({ tSex, tStyleTypeName }) => {
+    const id = tSex.toLowerCase()
+    const target = menuConfig.find((menu) => menu.id === id)
+    if(target) target.items = tStyleTypeName
+  })
 
   // 堆疊管理選單層級
   const [menuStack, setMenuStack] = useState(["main"]);
 
   // 連結對照表
   const menuLinks = {
-    "ABOUT": "/home_label/about",
-    "CONTACT": "/home_label/contact",
+    "ABOUT" : "/home_label/about",
+    "CONTACT" : "/home_label/contact",
     "ALL ITEMS" : "/home_label/products",
     "ALL GARMENT" : "/home_label/products/garment",
-    // "WOMEN'S" : "/home_label/products/garment/women",
-    // "MEN'S" : "/home_label/products/garment/men",
-    // "PRINT & EMB" : "/home_label/products/print&emb"
   };
 
   // 取得連結函式
-  const getHref = ( item ) => menuLinks[item] || null
-
+  const getHref = (item) => menuLinks[item] || null;
 
   // 通用點擊處理
   const handleMenuClick = (item) => {
     if (item === "PRODUCTS") setMenuStack(["main", "products"]);
     if (item === "GARMENT") setMenuStack((prev) => [...prev, "garment"]);
+    if (item === "WOMEN'S") setMenuStack((prev) => [...prev, "women"]);
+    if (item === "MEN'S") setMenuStack((prev) => [...prev, "men"]);
   };
 
   // 處理返回
@@ -99,6 +108,7 @@ const MobileMenu = ({ isMobileMenuOpen, toggleMobileMenu }) => {
           {/* 子選單項目渲染 */}
           {config.items.map((item) => (
             <MobileMenuContent
+              id={menu.id}
               key={item}
               item={item}
               label={item}

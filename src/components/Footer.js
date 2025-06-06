@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 const Footer = () => {
   return (
-    <div className="bg-black flex text-white justify-between items-center px-[4rem] h-[5rem]">
+    <div className="w-screen overflow-hidden bg-black flex text-white justify-between items-center px-[4rem] h-[5rem]">
       <div className="w-[3rem]">
         <Image
           src="/svg/colab.svg"

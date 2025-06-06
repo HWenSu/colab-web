@@ -14,13 +14,6 @@ export default function SearchPage() {
   const searchParams = useSearchParams();
   const searchTerm = searchParams.get("q")?.toLowerCase() || "";
 
-  // 使用 useApiFetch 載入所有資料
-  // const {
-  //   data: fabricDetails,
-  //   loading: fabricLoading,
-  //   error: fabricError,
-  // } = useApiFetch("/data/Product_Fabric.json");
-
   const {
     data: garmentDetails,
     loading: garmentLoading,

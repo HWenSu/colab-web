@@ -2,7 +2,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useRef } from "react";
 
-const MobileMenuContent = ({ onClick, label, arrow, item, href }) => {
+const MobileMenuContent = ({ id, onClick, label, arrow, href }) => {
+
+  if (id === "women" || id === "men") {
+    href = `/home_label/products/garment/filter?sex=${id}&styleType=${label.toLowerCase()}`;
+  } 
 
   const content = (
       <li className={`product-items  duration-500 ease-in-out`}>
