@@ -3,13 +3,21 @@ import {useState, useRef} from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Search from "./Search";
+import MobileMenu from "./MobileMenu";
 
 const Navbar = () => {
   const [isProductsHover, setIsProductsHover] = useState(false);
   const [isGarmentHover, setIsGarmentHover] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen ] = useState(false)
   // 儲存 timeout ID
   const hoverTimeout = useRef(null);
 
+  // 手機版：選單開關
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen)
+  }
+
+  // 電腦版：下拉式選單Hover觸發篩選條件
   const handleMouseEnter = (menu) => {
     if (hoverTimeout.current) {
       clearTimeout(hoverTimeout.current); // 清除任何現有的計時器
@@ -32,10 +40,11 @@ const Navbar = () => {
     }, 200);
   };
 
+
   return (
     <nav>
       <div className="navbar-container">
-        <div className="marquee-container ">
+        <div className="marquee-container invisible md:visible">
           <h1 className="marquee-content animate-marquee">
             FAR EASTERN NEW CENTURY COLAB
           </h1>
@@ -43,16 +52,42 @@ const Navbar = () => {
         <header className="header-wrap">
           <Link href="/" className="logo-wrap">
             <Image
-              className="dark:invert" //深色模式反轉顏色
+              className=" md:w-[3rem] dark:invert" //深色模式反轉顏色
               src="/svg/colab.svg"
               alt="colab logo"
-              width={50}
+              width={32}
               height={38}
               priority
             />
             <span className="font-bold ">COLAB</span>
           </Link>
-          <ul className="main-nav">
+
+          {/* 手機版-漢堡選單 */}
+          <button
+            className="md:hidden relative pl-8 order-3 z-999 "
+            onClick={toggleMobileMenu}
+          >
+            <svg
+              className="w-12 h-12"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d={
+                  isMobileMenuOpen
+                    ? "M6 18L18 6M6 6l12 12"
+                    : "M4 6h16M4 12h16M4 18h16"
+                }
+              />
+            </svg>
+          </button>
+
+          {/* 電腦版-導航列選單 */}
+          <ul className="main-nav hidden md:flex">
             <li
               className="product-items"
               onMouseEnter={() => handleMouseEnter("products")}
@@ -125,7 +160,13 @@ const Navbar = () => {
               <Link href="/home_label/contact">CONTACT</Link>
             </li>
           </ul>
-          <ul className="main-nav ">
+
+          {/* 右側 搜尋欄, 購物車Icon  */}
+          <ul
+            className={`main-nav flex ml-auto ${
+              isMobileMenuOpen && "invisible"
+            }`}
+          >
             <li>
               <Search />
             </li>
@@ -136,11 +177,11 @@ const Navbar = () => {
               <Link href="/home_label/cart">
                 {" "}
                 <Image
-                  className="invert " //深色模式反轉顏色
+                  className="invert md:w-[1.8rem]" //深色模式反轉顏色
                   src="/svg/cart.svg"
                   alt="cart"
-                  width={20}
-                  height={20}
+                  width={16}
+                  height={16}
                   priority
                 />
               </Link>
@@ -155,6 +196,11 @@ const Navbar = () => {
           ${isGarmentHover ? "scale-y-long" : ""}
           `}
       ></div>
+      {/* 手機側邊欄選單 */}
+      <MobileMenu
+        isMobileMenuOpen={isMobileMenuOpen}
+        toggleMobileMenu={toggleMobileMenu}
+      />
     </nav>
   );
 };

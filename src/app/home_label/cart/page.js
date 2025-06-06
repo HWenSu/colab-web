@@ -64,7 +64,7 @@ const handleSend = async () => {
   }, []);
 
   return (
-    <div className="max-w-[1280px] mx-auto pt-[8rem]">
+    <div className="max-w-[1280px] mx-auto pt-[16rem] sm:pt-[8rem] px-[4rem]">
       <ul className="cart-container">
         <h2 className="border-b pb-[2rem]">SELECTED LIST</h2>
         {chartItems && chartItems.length > 0 ? (
@@ -182,7 +182,7 @@ const handleSend = async () => {
         </div>
       </ul>
       <button
-        className="cart-btn mb-[4rem] mx-auto w-[20rem]"
+        className="cart-btn mb-[4rem] mx-auto "
         onClick={handleSend}
       >
         SEND TO FENC

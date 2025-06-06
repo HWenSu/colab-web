@@ -27,14 +27,15 @@ export default function Home() {
       >
         <video
           src={"/video/OtherPages/Co-web.mp4"}
+          playsInline
           autoPlay
           muted
           loop
-          className="w-full h-auto sticky top-0"
+          className=" w-full h-full sticky top-0 object-cover"
         />
-        <div className="h-[30vh] z-10 relative">
-          <div className="sticky top-[80vh] w-full">
-            <h2 className="text-white text-[2rem] font-bold text-center animate-scale-up">
+        <div className="sm:h-[30vh] z-10 relative">
+          <div className="sticky top-[80vh] w-screen overflow-hidden">
+            <h2 className="text-white text-[2rem] font-bold text-center animate-scale-up w-screen">
               FE INNOVATION DESIGN
             </h2>
           </div>
@@ -123,7 +124,7 @@ export default function Home() {
       {/* 文字說明區塊 */}
       <section className="bg-black  flex flex-col pt-[20rem]  scroll-section text-[4rem]">
         <div
-          className="sticky top-40 pr-[5rem] cursor-none"
+          className="sticky top-40 px-[5rem] cursor-none"
           onMouseEnter={() => handleCursor("Scroll")}
           onMouseLeave={resetCursor}
         >
@@ -159,7 +160,7 @@ export default function Home() {
       </section>
       {/* 分類卡片區塊 */}
       <section
-        className="bg-white h-[100vh] w-full cursor-none"
+        className="bg-white w-full cursor-none"
         onMouseEnter={() => handleCursor("Click")}
         onMouseLeave={resetCursor}
       >

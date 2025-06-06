@@ -257,6 +257,7 @@
     animation-range: calc(var(--animation-index) * 1.2%)
       calc(3% + (var(--animation-index) + 1) * 1.2%); /* 根據單詞索引錯開動畫範圍 */
   }
+
 }
 
 /* 共用樣式 */
@@ -320,7 +321,7 @@
 
 /* 導航列 */
 .navbar-container {
-  @apply w-screen fixed z-[900] text-white text-sm mix-blend-difference;
+  @apply w-screen fixed z-[800] text-white text-sm mix-blend-difference;
 }
 
 .marquee-container {
@@ -344,7 +345,7 @@
 }
 
 .main-nav {
-  @apply flex justify-center items-center;
+  @apply  justify-center items-center;
 }
 
 .main-nav a {
@@ -352,7 +353,7 @@
 }
 
 .dropdown-bg {
-  @apply fixed inset-0 w-full max-h-0 z-[800] origin-top bg-primary/95 backdrop-blur-sm transition-all duration-300 ease-in-out;
+  @apply fixed inset-0 w-full max-h-0 z-[500] origin-top bg-primary/95 backdrop-blur-sm pointer-events-none transition-all duration-300 ease-in-out;
 }
 
 .scale-y-short {
@@ -384,6 +385,24 @@
   @apply hover:text-secondary ;
 }
 
+/* 手機版側邊欄 */
+.mobile-sidebar {
+  @apply fixed top-0 right-0 w-[70vw] h-full z-[800] text-white origin-top bg-primary transform transition-transform duration-500 ease-in-out md:hidden
+}
+
+.mobile-sidebar li {
+  @apply pb-[2rem]
+}
+
+.mobileMenuContent {
+  @apply absolute top-0 left-0 pt-[10rem] text-4xl px-[4rem] w-full h-full transition-transform duration-500 ease-in-out
+}
+
+.slide-left {
+  @apply -translate-x-full 
+}
+
+
 /* Home Page */
 .home-page-container {
   @apply w-screen min-h-screen;
@@ -408,7 +427,7 @@
 }
 
 .hero-grid {
-  @apply grid grid-cols-[0.1fr_0.85fr_1fr_1fr_1fr_1fr] w-full min-h-screen;
+  @apply hidden sm:grid grid-cols-[0.1fr_0.85fr_1fr_1fr_1fr_1fr] w-full min-h-screen;
 }
 
 .grid-item {
@@ -457,7 +476,7 @@
 }
 
 .about-items-container {
-  @apply flex flex-col relative z-[10] pt-[30vh] pointer-events-none;
+  @apply flex flex-col relative z-[10] -translate-y-[50rem] sm:translate-y-0 sm:pt-[30vh] pointer-events-none;
 }
 
 .about-design-section .image-container {
@@ -513,11 +532,11 @@
 /* Product 頁面 */
 /* Category Card */
 .category-cards-container {
-  @apply flex justify-center items-center pt-[20vh];
+  @apply flex flex-col sm:flex-row justify-center items-center sm:pt-[20vh];
 }
 
 .category-card {
-  @apply relative bg-gray-200 m-2 w-[30vw] h-[70vh] overflow-hidden;
+  @apply relative bg-gray-200 m-[2rem] sm:h-[70vh] sm:w-[30vw] overflow-hidden;
 }
 
 .category-card::after {
@@ -702,11 +721,12 @@
 }
 
 .print-tech-container {
-  @apply flex justify-between;
+  @apply flex flex-col justify-between items-center sm:flex-row ;
 }
 
+
 .print-tech-title {
-  @apply border-black/50 border-b-[0.3px] w-[40vw] text-left py-[2rem];
+  @apply border-black/50 border-b-[0.3px] w-[70vw] sm:w-[40vw] text-left py-[2rem];
 }
 
 .print-tech-title p {
@@ -714,11 +734,11 @@
 }
 
 .print-tech-title .blur-text-container {
-  @apply text-[2.3rem]  py-0 px-2 w-[20vw];
+  @apply text-[2.3rem]  py-0 px-2 ;
 }
 
 .light-text-container {
-  @apply w-[28vw] text-[1.2rem] text-[#ededed];
+  @apply py-[2vh] w-[70vw] text-center sm:text-left sm:w-[28vw] sm:py-0 text-[1.2rem] text-[#ededed];
 }
 
 /* Gallery */
@@ -779,7 +799,7 @@
 }
 
 .cart-btn {
-  @apply flex justify-center bg-black text-white items-center max-w-[10rem] px-2 gap-2 py-2 rounded-lg cursor-pointer duration-300 ease-in-out hover:bg-secondary hover:text-black
+  @apply flex justify-center bg-black text-white items-center w-[16rem] px-2 gap-2 py-2 rounded-lg cursor-pointer duration-300 ease-in-out hover:bg-secondary hover:text-black
 }
 
 .cart-btn:hover .no-invert {

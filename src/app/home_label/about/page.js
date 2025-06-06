@@ -25,7 +25,7 @@ const About = () => {
           className="w-[80vw] absolute top-[30vh] -left-[10vw]"
         />
         <div
-          className="cursor-none"
+          className="cursor-none "
           onMouseEnter={() => handleCursor("Hover")}
           onMouseLeave={resetCursor}
         >
@@ -93,7 +93,7 @@ const About = () => {
           alt="deco arrow"
           width={20}
           height={10}
-          className="m-auto pt-[50vh]"
+          className="m-auto sm:pt-[50vh]"
         />
         <div className="relative ">
           <div className="flex items-end text-[1.2rem] px-[4rem] pt-[5rem]">
@@ -116,13 +116,14 @@ const About = () => {
               height={400}
             />
           </div>
-          <div className="flex gap-6 justify-center py-10 relative z-[5]">
+          <div className="grid grid-cols-[20rem_20rem] justify-center justify-items-center gap-6 py-10 relative z-[5] sm:flex ">
             <StaffCard
               name="JENNIFER"
               lastName="LEE"
               jobPosition="DESIGNER ASSISTANT"
               imgUrl="/image/OtherPages/About/org-jen.png"
               yPosition="14"
+              gridPosition="row-4"
             />
             <StaffCard
               name="PENNIE"
@@ -130,6 +131,7 @@ const About = () => {
               jobPosition="SENIOR DESIGNER"
               imgUrl="/image/OtherPages/About/org-pennie.png"
               yPosition="9"
+              gridPosition="row-3"
             />
             <StaffCard
               name="ETHAN"
@@ -137,12 +139,14 @@ const About = () => {
               jobPosition="SENIOR DESIGNER"
               imgUrl="/image/OtherPages/About/org-ethan.png"
               yPosition="6"
+              gridPosition="row-2"
             />
             <StaffCard
               name="YANG"
               lastName="CHEN"
               jobPosition="DESIGN MANAGER"
               imgUrl="/image/OtherPages/About/org-yang.png"
+              gridPosition="col-start-1 col-end-3 row-1 "
             />
             <StaffCard
               name="SUNNY"
@@ -150,6 +154,7 @@ const About = () => {
               jobPosition="SENIOR DESIGNER"
               imgUrl="/image/OtherPages/About/org-sunny.png"
               yPosition="7"
+              gridPosition="row-2"
             />
             <StaffCard
               name="ELVA"
@@ -164,6 +169,7 @@ const About = () => {
               jobPosition="DESIGNER ASSISTANT"
               imgUrl="/image/OtherPages/About/org-reki.png"
               yPosition="10"
+              gridPosition="row-4"
             />
           </div>
           <div className="">
@@ -172,7 +178,7 @@ const About = () => {
               alt="deco arrow"
               width={20}
               height={10}
-              className="m-auto pt-[50vh]"
+              className="m-auto pt-[4rem] sm:pt-[50vh]"
             />
             <Image
               src="/svg/decorationArrow.svg"
