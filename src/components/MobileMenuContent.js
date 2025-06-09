@@ -1,8 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useRef } from "react";
 
-const MobileMenuContent = ({ id, onClick, label, arrow, href }) => {
+const MobileMenuContent = ({ id, onClick, label, arrow, href, onLinkClick }) => {
 
   if (id === "women" || id === "men") {
     href = `/home_label/products/garment/filter?sex=${id}&styleType=${label.toLowerCase()}`;
@@ -26,11 +25,13 @@ const MobileMenuContent = ({ id, onClick, label, arrow, href }) => {
       </li>
   )
 
-  return href? (
-   <Link href={href}> {content} </Link>
+  return href ? (
+    <Link href={href}>
+      <button className="flex" onClick={onLinkClick}>{content}</button>
+    </Link>
   ) : (
     <div onClick={onClick}> {content} </div>
-  )
+  );
 };
 
 export default MobileMenuContent

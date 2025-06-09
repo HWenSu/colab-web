@@ -201,6 +201,7 @@ const Navbar = () => {
         isMobileMenuOpen={isMobileMenuOpen}
         toggleMobileMenu={toggleMobileMenu}
       />
+
     </nav>
   );
 };

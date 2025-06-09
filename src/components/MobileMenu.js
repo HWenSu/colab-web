@@ -1,6 +1,5 @@
 import { useState } from "react";
 import MobileMenuContent from "./MobileMenuContent";
-import Link from "next/link";
 import Image from "next/image";
 import useUniqueStyleTypes from "@/hooks/useUniqueStyleTypes";
 
@@ -32,8 +31,10 @@ const MobileMenu = ({ isMobileMenuOpen, toggleMobileMenu }) => {
   const menuLinks = {
     "ABOUT" : "/home_label/about",
     "CONTACT" : "/home_label/contact",
-    "ALL ITEMS" : "/home_label/products",
-    "ALL GARMENT" : "/home_label/products/garment",
+    "PRINT & EMB": "/home_label/products/print&emb", 
+    "ALL ITEMS": "/home_label/products",
+    "ALL GARMENT": "/home_label/products/garment",
+    "NEW ARRIVAL": "/home_label/products/new_arrival",
   };
 
   // 取得連結函式
@@ -51,6 +52,12 @@ const MobileMenu = ({ isMobileMenuOpen, toggleMobileMenu }) => {
   const handleBack = () => {
     setMenuStack((prev) => prev.slice(0, -1));
   };
+
+  // 處理關閉並重置
+  const handleCloseReset = () => {
+    toggleMobileMenu()
+    setMenuStack(["main"])
+  }
 
   // 動態渲染手機版側邊選單
   const currentLevel = menuStack[menuStack.length - 1];
@@ -75,66 +82,74 @@ const MobileMenu = ({ isMobileMenuOpen, toggleMobileMenu }) => {
   };
 
   return (
-    <div
-      className={`mobile-sidebar overflow-hidden transition-transform duration-300  
+    <div>
+      <div
+        className={`mobile-sidebar overflow-hidden transition-transform duration-300  
           ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"} `}
-    >
-      <button
-        className="absolute top-16 right-16 z-999"
-        onClick={toggleMobileMenu}
       >
-        <svg
-          className="w-12 h-12"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
+        <button
+          className="absolute top-16 right-16 z-999"
+          onClick={handleCloseReset}
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d={"M6 18L18 6M6 6l12 12"}
-          />
-        </svg>
-      </button>
-      {/* 菜單容器 */}
-      {menuConfig.map((menu) => (
-        <div
-          key={menu.id}
-          className={`mobileMenuContent
+          <svg
+            className="w-12 h-12"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d={"M6 18L18 6M6 6l12 12"}
+            />
+          </svg>
+        </button>
+        {/* 菜單容器 */}
+        {menuConfig.map((menu) => (
+          <div
+            key={menu.id}
+            className={`mobileMenuContent
               ${getMenuTranslate(menu.id)}
               `}
-        >
-          {/* 子選單項目渲染 */}
-          {config.items.map((item) => (
-            <MobileMenuContent
-              id={menu.id}
-              key={item}
-              item={item}
-              label={item}
-              arrow={["PRODUCTS", "GARMENT", "WOMEN'S", "MEN'S"].includes(item)}
-              href={getHref(item)}
-              onClick={() => handleMenuClick(item)}
-            />
-          ))}
-        </div>
-      ))}
+          >
+            {/* 子選單項目渲染 */}
+            {config.items.map((item) => (
+              <MobileMenuContent
+                id={menu.id}
+                key={item}
+                item={item}
+                label={item}
+                arrow={["PRODUCTS", "GARMENT", "WOMEN'S", "MEN'S"].includes(
+                  item
+                )}
+                href={getHref(item)}
+                onClick={() => handleMenuClick(item)}
+                onLinkClick={handleCloseReset}
+              />
+            ))}
+          </div>
+        ))}
 
-      {menuStack.length > 1 && (
-        <button
-          className="flex justify-center items-center absolute top-[2rem] left-[2rem]"
-          onClick={handleBack}
-        >
-          <Image
-            className="invert rotate-90"
-            src="/svg/downArrow.svg"
-            alt="dropdown-icon"
-            width={10}
-            height={5}
-            priority
-          />
-          BACK
-        </button>
+        {menuStack.length > 1 && (
+          <button
+            className="flex justify-center items-center absolute top-[4rem] left-[4rem] text-4xl"
+            onClick={handleBack}
+          >
+            <Image
+              className="invert rotate-90 mr-2"
+              src="/svg/downArrow.svg"
+              alt="dropdown-icon"
+              width={10}
+              height={5}
+              priority
+            />
+            BACK
+          </button>
+        )}
+      </div>
+      {isMobileMenuOpen && (
+        <div className="overlay" onClick={handleCloseReset}></div>
       )}
     </div>
   );
