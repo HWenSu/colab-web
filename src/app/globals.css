@@ -325,7 +325,7 @@
 
 /* 導航列 */
 .navbar-container {
-  @apply w-screen overflow-hidden fixed z-[800] text-white text-sm mix-blend-difference;
+  @apply w-screen fixed z-[800] text-white text-sm mix-blend-difference;
 }
 
 .marquee-container {
@@ -361,11 +361,15 @@
 }
 
 .scale-y-short {
-  @apply pointer-events-auto  max-h-50;
+  @apply pointer-events-auto max-h-50;
 }
 
 .scale-y-long {
-  @apply  pointer-events-auto  max-h-60;
+  @apply  pointer-events-auto max-h-60;
+}
+
+.scale-y-more-long {
+  @apply pointer-events-auto max-h-70
 }
 
 .dropdown-content {
@@ -377,7 +381,15 @@
 }
 
 .products-drop-down-container {
-  @apply absolute top-full -left-1/2 hidden font-bold w-[25rem] ;
+  @apply absolute top-full -translate-x-1/4 font-bold mx-auto hidden w-[40rem]
+}
+
+.style-type-layer {
+  @apply -translate-x-1/2 text-white
+}
+
+.garment-layer{
+  @apply text-white -translate-x-[16rem] -translate-y-[1.2rem]
 }
 
 .product-items:hover .products-drop-down-container {
@@ -388,6 +400,7 @@
 .products-drop-down-container li {
   @apply hover:text-secondary ;
 }
+
 
 /* 手機版側邊欄 */
 .mobile-sidebar {

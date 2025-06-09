@@ -4,13 +4,22 @@ import Link from "next/link";
 import Image from "next/image";
 import Search from "./Search";
 import MobileMenu from "./MobileMenu";
+import useUniqueStyleTypes from "@/hooks/useUniqueStyleTypes";
+
 
 const Navbar = () => {
   const [isProductsHover, setIsProductsHover] = useState(false);
   const [isGarmentHover, setIsGarmentHover] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen ] = useState(false)
+  const [isStyleTypeOpen, setIsStyleTypeOpen] = useState(false)
+  const [currentSex, setCurrentSex] = useState(null)
+  const [isStyleTypeItems, setIsStyleTypeItems] = useState([])
+
   // 儲存 timeout ID
   const hoverTimeout = useRef(null);
+
+  // 獲取男女裝個別不重複的分類名稱
+  const styleTypeNameData = useUniqueStyleTypes();
 
   // 手機版：選單開關
   const toggleMobileMenu = () => {
@@ -21,11 +30,14 @@ const Navbar = () => {
   const handleMouseEnter = (menu) => {
     if (hoverTimeout.current) {
       clearTimeout(hoverTimeout.current); // 清除任何現有的計時器
-    }
-    if (menu === "products") {
+    } if (menu === "products") {
       setIsProductsHover(true);
-    } else if (menu === "garment") {
+    } if (menu === "garment") {
       setIsGarmentHover(true);
+    } else if (menu === "women" || menu === "men") {
+      setCurrentSex(menu)
+      const styleType = styleTypeNameData.filter((data) => data.tSex.toLowerCase() === menu)
+      setIsStyleTypeItems(styleType[0].tStyleTypeName);
     }
   };
 
@@ -34,8 +46,9 @@ const Navbar = () => {
       if (menu === "products") {
         setIsProductsHover(false);
         setIsGarmentHover(false); // 同時收起子選單
-      } else if (menu === "garment") {
-        setIsGarmentHover(false);
+      } else if ( menu === "garment"  ) {
+        setIsGarmentHover(false)
+        setIsStyleTypeOpen(false);
       }
     }, 200);
   };
@@ -87,7 +100,7 @@ const Navbar = () => {
           </button>
 
           {/* 電腦版-導航列選單 */}
-          <ul className="main-nav hidden md:flex">
+          <ul className="main-nav mx-auto hidden md:flex">
             <li
               className="product-items"
               onMouseEnter={() => handleMouseEnter("products")}
@@ -108,6 +121,11 @@ const Navbar = () => {
               {isProductsHover && (
                 <ul className="products-drop-down-container">
                   <li>
+                    <Link href="/home_label/products/new_arrival">
+                      NEW ARRIVAL
+                    </Link>
+                  </li>
+                  <li>
                     <Link href="/home_label/products">ALL ITEMS</Link>
                   </li>
                   <li
@@ -115,10 +133,7 @@ const Navbar = () => {
                     onMouseLeave={() => handleMouseLeave("garment")}
                     className="relative"
                   >
-                    <Link
-                      href="/home_label/products/garment"
-                      className="flex items-center"
-                    >
+                    <Link href="/home_label/products/garment" className="flex">
                       <span>GARMENT</span>
                       <Image
                         className="invert ml-1"
@@ -131,17 +146,57 @@ const Navbar = () => {
                     </Link>
                     {/* Garment層下拉選單 */}
                     {isGarmentHover && (
-                      <ul className="products-drop-down-container text-white -translate-x-20">
-                        <li className="">
-                          <Link href="/home_label/products/garment/women">
-                            WOMEN
-                          </Link>
-                        </li>
-                        <li className="">
-                          <Link href="/home_label/products/garment/men">
-                            MEN
-                          </Link>
-                        </li>
+                      <ul className="products-drop-down-container garment-layer">
+                        {styleTypeNameData &&
+                          styleTypeNameData?.map((item) => {
+                            const sex = item?.tSex?.toLowerCase();
+                            return (
+                              <li
+                                key={sex}
+                                onMouseEnter={() => {
+                                  handleMouseEnter(sex);
+                                  setIsStyleTypeOpen(true);
+                                }
+                                }
+                                onMouseLeave={() => {
+                                  handleMouseLeave(sex)
+                                  setIsStyleTypeOpen(false);
+                                }}
+                                className={`relative`}
+                              >
+                                <Link
+                                  href={`/home_label/products/garment/${sex}`}
+                                  className="flex"
+                                >
+                                  <span>{sex.toUpperCase()}</span>
+                                  <Image
+                                    className="invert ml-1"
+                                    src="/svg/downArrow.svg"
+                                    alt="dropdown-icon"
+                                    width={10}
+                                    height={5}
+                                    priority
+                                  />
+                                </Link>
+                                {/* 品項分類 */}
+                                {isStyleTypeOpen && currentSex === sex && (
+                                  <ul className="products-drop-down-container style-type-layer">
+                                    {isStyleTypeItems &&
+                                      isStyleTypeItems.map((item) => (
+                                        <li key={item}>
+                                          <Link
+                                            href={`/home_label/products/garment/filter?sex=${currentSex}&styleType=${item.toLowerCase()}`}
+                                          >
+                                            <span>{item.toUpperCase()}</span>
+                                          </Link>
+                                        </li>
+                                      ))}
+                                  </ul>
+                                )}
+                              </li>
+                            );
+                          })}
+
                       </ul>
                     )}
                   </li>
@@ -194,6 +249,7 @@ const Navbar = () => {
         className={`dropdown-bg 
           ${isProductsHover ? "scale-y-short" : ""} 
           ${isGarmentHover ? "scale-y-long" : ""}
+          ${isStyleTypeOpen ? "scale-y-more-long" : ""}
           `}
       ></div>
       {/* 手機側邊欄選單 */}
@@ -201,7 +257,6 @@ const Navbar = () => {
         isMobileMenuOpen={isMobileMenuOpen}
         toggleMobileMenu={toggleMobileMenu}
       />
-
     </nav>
   );
 };
