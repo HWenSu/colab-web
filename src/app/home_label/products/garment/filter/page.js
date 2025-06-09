@@ -4,8 +4,8 @@ import { useSearchParams } from "next/navigation";
 import APIFetcher from "@/components/APIFetcher";
 import ProductCard from "@/components/ProductCard";
 
-const api_url_path = "/data/Product_Garment.json";
-// const api_url_path = "http://localhost:53866/api/product/garment";
+// const api_url_path = "/data/Product_Garment.json";
+const api_url_path = "http://localhost:53866/api/product/garment";
 
 
 const FilterPage = () => {

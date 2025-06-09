@@ -2,8 +2,8 @@
 import APIFetcher from "@/components/APIFetcher";
 import ProductCard from "@/components/ProductCard";
 
-const  api_url_path_g = "/data/Product_Garment.json";
-// const api_url_path_g = "http://localhost:53866/api/product/garment";
+// const  api_url_path_g = "/data/Product_Garment.json";
+const api_url_path_g = "http://localhost:53866/api/product/garment";
 
 
 const NewArrivalPage = () => {

@@ -4,11 +4,11 @@ import APIFetcher from "@/components/APIFetcher";
 import Image from "next/image";
 import ProductsList from "@/components/ProductsList";
 
-// const api_url_path_g = "http://localhost:53866/api/product/garment";
-// const api_url_path_pe = "http://localhost:53866/api/product/petech";
+const api_url_path_g = "http://localhost:53866/api/product/garment";
+const api_url_path_pe = "http://localhost:53866/api/product/petech";
 
-const api_url_path_g = "/data/Product_Garment.json";
-const api_url_path_pe = "/data/Product_PETech.json";
+// const api_url_path_g = "/data/Product_Garment.json";
+// const api_url_path_pe = "/data/Product_PETech.json";
 
 const page = () => {
   return (
