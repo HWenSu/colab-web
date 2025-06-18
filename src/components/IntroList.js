@@ -1,10 +1,7 @@
 import BlurText from "@/components/BlurText";
 import LightText from "@/components/LightText";
 
-const IntroList = ({invert, listItem, videoUrl}) => {
-
-  const introduction =
-    "We operate our own printing and embroidery facility in Vietnam, allowing us to independently develop innovative techniques and surface effects. Additionally, we release a new lookbook twice a year to showcase our latest developments and seasonal inspirations.";
+const IntroList = ({ invert, listItem, videoUrl, introduction }) => {
 
   return (
     <section className={`print-tech-container ${invert && invert} `}>

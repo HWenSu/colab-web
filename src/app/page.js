@@ -132,7 +132,7 @@ export default function Home() {
           </div>
           <div className="flex h-[60rem] justify-end">
             <div className="invert ">
-              <BlurText words={"for Far Eastern New Century"} />
+              <BlurText words={"Far Eastern New Century"} />
             </div>
             <div className="animate-scroll-broaden w-[10rem] overflow-hidden">
               <Image
@@ -150,10 +150,13 @@ export default function Home() {
             invert={"invert"}
             videoUrl={"/video/OtherPages/Colab2022.mp4"}
             listItem={[
-              "Create Volume with Print",
-              "Soft Texture",
-              "Special Techniques",
+              "Innovative Material Hand-feel",
+              "Forward-thinking Fabric Tactility",
+              "Exclusive Craftsmanship",
             ]}
+            introduction={
+              "We are committed to turning a designer's creative vision into tangible artistry. At our vertically integrated R&D hub, we pioneer experimental silhouettes and artisanal techniques, continually pushing the boundaries of material innovation. Our biannual trend reports and collections do more than showcase our technical advancements—they offer a boundless wellspring of inspiration, inviting you to co-create the future of fashion with us."
+            }
           />
         </div>
       </section>

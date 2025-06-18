@@ -107,79 +107,13 @@ const About = () => {
             <p>OUR TEAM</p>
           </div>
           {/* 背景圖片 */}
-          <div className="absolute w-full">
-            <Image
-              className="w-full opacity-60 "
-              src="/image/OtherPages/About/org-bg.png"
-              alt="org-bg"
-              width={500}
-              height={400}
-            />
-          </div>
-          <div className="grid grid-cols-[20rem_20rem] justify-center justify-items-center gap-6 py-10 relative z-[5] sm:flex ">
-            <StaffCard
-              name="JENNIFER"
-              lastName="LEE"
-              jobPosition="DESIGNER ASSISTANT"
-              imgUrl="/image/OtherPages/About/org-jen.png"
-              yPosition="14"
-              gridPosition="row-4"
-            />
-            <StaffCard
-              name="PENNIE"
-              lastName="CHEONG"
-              jobPosition="SENIOR DESIGNER"
-              imgUrl="/image/OtherPages/About/org-pennie.png"
-              yPosition="9"
-              gridPosition="row-3"
-            />
-            <StaffCard
-              name="ETHAN"
-              lastName="CHOU"
-              jobPosition="SENIOR DESIGNER"
-              imgUrl="/image/OtherPages/About/org-ethan.png"
-              yPosition="6"
-              gridPosition="row-2"
-            />
-            <StaffCard
-              name="YANG"
-              lastName="CHEN"
-              jobPosition="DESIGN MANAGER"
-              imgUrl="/image/OtherPages/About/org-yang.png"
-              gridPosition="col-start-1 col-end-3 row-1 "
-            />
-            <StaffCard
-              name="SUNNY"
-              lastName="HUANG"
-              jobPosition="SENIOR DESIGNER"
-              imgUrl="/image/OtherPages/About/org-sunny.png"
-              yPosition="7"
-              gridPosition="row-2"
-            />
-            <StaffCard
-              name="ELVA"
-              lastName="SU"
-              jobPosition="SENIOR DESIGNER"
-              imgUrl="/image/OtherPages/About/org-elva.png"
-              yPosition="5"
-            />
-            <StaffCard
-              name="REKI"
-              lastName="CHANG"
-              jobPosition="DESIGNER ASSISTANT"
-              imgUrl="/image/OtherPages/About/org-reki.png"
-              yPosition="10"
-              gridPosition="row-4"
-            />
-          </div>
-          <div className="">
-            <Image
-              src="/svg/decorationArrow.svg"
-              alt="deco arrow"
-              width={20}
-              height={10}
-              className="m-auto pt-[4rem] sm:pt-[50vh]"
-            />
+          <Image
+            src={"/image/OtherPages/About/about-org.png"}
+            alt="colab-org"
+            width={1800}
+            height={200}
+          />
+          <div>
             <Image
               src="/svg/decorationArrow.svg"
               alt="deco arrow"

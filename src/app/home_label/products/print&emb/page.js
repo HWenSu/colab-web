@@ -60,6 +60,9 @@ const Print = () => {
             "Soft Texture",
             "Special Techniques",
           ]}
+          introduction={
+            "We operate our own printing and embroidery facility in Vietnam, allowing us to independently develop innovative techniques and surface effects. Additionally, we release a new lookbook twice a year to showcase our latest developments and seasonal inspirations."
+          }
         />
       </section>
       {/* 滾動式差背景圖片區塊 */}
