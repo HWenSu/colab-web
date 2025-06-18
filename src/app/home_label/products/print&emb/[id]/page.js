@@ -5,8 +5,8 @@ import APIFetcher from "@/components/APIFetcher";
 import ImageCarousel from '@/components/ImageCarousel';
 import AddToCartButton from '@/components/AddToCartButton';
 import RemoveFromCartButton from '@/components/RemoveFromCartButton';
+import { apiUrls } from '@/APIConnection';
 
-const api_url_path = "http://localhost:53866/api/product/petech";
 
 export default function ProductPage({ params }) {
   // 確保 params 被正確解析
@@ -30,7 +30,7 @@ export default function ProductPage({ params }) {
 
   return (
     <div>
-      <APIFetcher url={api_url_path}>
+      <APIFetcher url={apiUrls.api_url_path_pe}>
         {(products) => {
           // 確保 id 已初始化後再執行篩選
           const product = Array.isArray(products)

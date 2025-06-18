@@ -6,8 +6,7 @@ import BlurText from "@/components/BlurText";
 import IntroList from "@/components/IntroList";
 import CustomCursor from "@/components/CustomCursor";
 import { useCustomCursor } from "@/hooks/useCustomCursor";
-
-const api_url_path = "http://localhost:53866/api/product/petech"
+import { apiUrls } from "@/APIConnection";
 
 const Print = () => {
   // 調用自訂義鼠標Hook
@@ -27,7 +26,7 @@ const Print = () => {
           onMouseEnter={() => handleCursor("Hover")}
           onMouseLeave={resetCursor}
         >
-          <APIFetcher url={api_url_path}>
+          <APIFetcher url={apiUrls.api_url_path_pe}>
             {(products) => (
               <div>
                 {products &&
@@ -50,7 +49,7 @@ const Print = () => {
       </section>
       {/* 商品列表區塊 */}
       <section className="my-[10em]">
-        <ProductsList url={api_url_path} />
+        <ProductsList url={apiUrls.api_url_path_pe} />
       </section>
       {/* 技法選單區塊 */}
       <section className="h-[100vh] relative">

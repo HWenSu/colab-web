@@ -6,9 +6,7 @@ import ImageCarousel from '@/components/ImageCarousel';
 import useApiFetch from "@/hooks/useApiFetch";
 import AddToCartButton from '@/components/AddToCartButton';
 import RemoveFromCartButton from '@/components/RemoveFromCartButton';
-
-const api_url_path_g = "http://localhost:53866/api/product/garment";
-const api_url_path_f = "http://localhost:53866/api/product/fabric";
+import { apiUrls } from '@/APIConnection';
 
 export default function ProductPage({ params }) {
   // 確保 params 被正確解析
@@ -27,7 +25,7 @@ export default function ProductPage({ params }) {
     data: fabricDetails,
     loading: fabricLoading,
     error: fabricError,
-  } = useApiFetch(api_url_path_f);
+  } = useApiFetch(apiUrls.api_url_path_f);
 
   const handleImgClicked = (index) => {
     setIsImgOpen(true);
@@ -45,7 +43,7 @@ export default function ProductPage({ params }) {
 
   return (
     <div>
-      <APIFetcher url={api_url_path_g}>
+      <APIFetcher url={apiUrls.api_url_path_g}>
         {(products) => {
           // 確保 id 已初始化後再執行篩選
           const product = Array.isArray(products)

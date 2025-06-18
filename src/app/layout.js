@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import GlobalContextProvider from "@/context/GlobalContext";
 
+
 // 設定 Quantico 字體
 const quantico = Quantico({
   variable: "--font-quantico", // 設定 CSS 變數

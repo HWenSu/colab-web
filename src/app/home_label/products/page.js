@@ -1,14 +1,10 @@
 "use client"
 import CategoryCard from "@/components/CategoryCard";
-import APIFetcher from "@/components/APIFetcher";
 import Image from "next/image";
 import ProductsList from "@/components/ProductsList";
+import { apiUrls } from "@/APIConnection";
 
-const api_url_path_g = "http://localhost:53866/api/product/garment";
-const api_url_path_pe = "http://localhost:53866/api/product/petech";
 
-// const api_url_path_g = "/data/Product_Garment.json";
-// const api_url_path_pe = "/data/Product_PETech.json";
 
 const page = () => {
   return (
@@ -52,8 +48,8 @@ const page = () => {
       {/* 大分類卡片 */}
       <CategoryCard />
       {/* 所有款式選染 */}
-      <ProductsList url={api_url_path_g} />
-      <ProductsList url={api_url_path_pe} />
+      <ProductsList url={apiUrls.api_url_path_g} />
+      <ProductsList url={apiUrls.api_url_path_pe} />
     </div>
   );
 };

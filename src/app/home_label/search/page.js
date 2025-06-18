@@ -3,9 +3,7 @@ import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import ProductsList from "@/components/ProductsList";
 import useApiFetch from "@/hooks/useApiFetch";
-
-const api_url_path_g = "http://localhost:53866/api/product/garment";
-const api_url_path_pe = "http://localhost:53866/api/product/petech";
+import { apiUrls } from "@/APIConnection";
 
 export default function SearchPage() {
   const [data, setData] = useState([]);
@@ -18,13 +16,13 @@ export default function SearchPage() {
     data: garmentDetails,
     loading: garmentLoading,
     error: garmentError,
-  } = useApiFetch(api_url_path_g);
+  } = useApiFetch(apiUrls.api_url_path_g);
 
   const {
     data: PETechDetails,
     loading: PETechLoading,
     error: PETechError,
-  } = useApiFetch(api_url_path_pe);
+  } = useApiFetch(apiUrls.api_url_path_pe);
 
   //在資料加載完成時格式化
   useEffect(() => {

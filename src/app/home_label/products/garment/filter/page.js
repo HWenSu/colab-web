@@ -3,9 +3,7 @@
 import { useSearchParams } from "next/navigation";
 import APIFetcher from "@/components/APIFetcher";
 import ProductCard from "@/components/ProductCard";
-
-// const api_url_path = "/data/Product_Garment.json";
-const api_url_path = "http://localhost:53866/api/product/garment";
+import { apiUrls } from "@/APIConnection";
 
 
 const FilterPage = () => {
@@ -16,7 +14,7 @@ const FilterPage = () => {
   return (
     <div className="pt-30">
       <section>
-        <APIFetcher url={api_url_path}>
+        <APIFetcher url={apiUrls.api_url_path_g}>
           {(products) => {
             const filtered = products.filter(
               (product) =>
