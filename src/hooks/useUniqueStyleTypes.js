@@ -1,15 +1,16 @@
 import { useMemo } from "react";
 import useApiFetch from "@/hooks/useApiFetch";
+import { apiUrls } from "@/APIConnection";
 
 
 const useUniqueStyleTypes = () => {
-  const api_url_path_g = "/data/Product_Garment.json";
+  
   // 使用 useApiFetch 載入 Garment 資料
   const {
     data: garmentDetails,
     loading: garmentLoading,
     error: garmentError,
-  } = useApiFetch(api_url_path_g);
+  } = useApiFetch(apiUrls.api_url_path_g);
 
   // 篩選不重複的tStyleTypeName
   return useMemo(() => {
