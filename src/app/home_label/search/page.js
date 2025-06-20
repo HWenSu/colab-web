@@ -1,11 +1,11 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import ProductsList from "@/components/ProductsList";
 import useApiFetch from "@/hooks/useApiFetch";
 import { apiUrls } from "@/APIConnection";
 
-export default function SearchPage() {
+const SearchContent = () => {
   const [data, setData] = useState([]);
   const [results, setResults] = useState([]);
 
@@ -24,57 +24,70 @@ export default function SearchPage() {
     error: PETechError,
   } = useApiFetch(apiUrls.api_url_path_pe);
 
-  //在資料加載完成時格式化
+  // 在資料加載完成時格式化
   useEffect(() => {
     if (garmentDetails && PETechDetails) {
-      // 為每組資料添加 type 標識，並合併
       const formattedData = [
-        // ...fabricDetails.map((item) => ({ ...item, type: "fabric" })),
         ...garmentDetails.map((item) => ({ ...item, type: "product" })),
         ...PETechDetails.map((item) => ({ ...item, type: "article" })),
       ];
       setData(formattedData);
     } else if (garmentError || PETechError) {
       console.error("資料加載錯誤:", garmentError || PETechError);
-      setData([]); // 錯誤時清空資料，避免基於不完整資料渲染
+      setData([]);
     }
-  }, [garmentDetails, PETechDetails]);
+  }, [garmentDetails, PETechDetails, garmentError, PETechError]);
 
-  //過濾資料
+  // 過濾資料
   useEffect(() => {
-    if (data.length) {
+    if (searchTerm && data.length > 0) {
       const filteredResults = data.filter((item) =>
         Object.values(item).some((value) => {
           if (Array.isArray(value)) {
             return value.some((v) =>
-              v.toString().toLowerCase().includes(searchTerm)
+              v?.toString().toLowerCase().includes(searchTerm)
             );
           }
           return value?.toString().toLowerCase().includes(searchTerm);
         })
       );
       setResults(filteredResults);
+    } else {
+      setResults([]);
     }
   }, [data, searchTerm]);
 
   // 渲染時檢查載入和錯誤狀態
-  if (garmentLoading || PETechLoading) return <p>載入中...</p>;
+  if (garmentLoading || PETechLoading)
+    return <p className="text-center">載入中...</p>;
   if (garmentError || PETechError)
     return (
-      <p className="text-red-500">
-        無法加載資料: {garmentError || PETechError}
+      <p className="text-red-500 text-center">
+        無法加載資料: {garmentError?.message || PETechError?.message}
       </p>
     );
 
   return (
-    <div className="pt-[10rem]">
+    <>
       {results.length > 0 ? (
         <ProductsList filteredData={results} />
       ) : (
         <p className="text-gray-500 text-center">
-          Oops… no results found. Please try different keywords.
+          Oops… 沒有找到符合「{searchTerm}」的結果，請試試別的關鍵字。
         </p>
       )}
-    </div>
+    </>
   );
-}
+};
+
+
+const SearchPage = () => (
+  <div className="pt-[10rem]">
+    <Suspense fallback={<p className="text-center">載入中...</p>}>
+      <SearchContent />
+    </Suspense>
+  </div>
+);
+
+export default SearchPage;
+
