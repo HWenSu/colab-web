@@ -135,7 +135,8 @@ const About = () => {
               <li className=" flex flex-col justify-center items-center ">
                 <div className="triangle"></div>
                 <h2 className="text-[4rem]">CREATE</h2>
-                <p className="text-[1.8rem]">NEW 100s STYLE</p>
+                <p className="text-[1.8rem]">200 NEW STYLES</p>
+                <p className="text-[1.8rem]">BY-YEARLY</p>
               </li>
               <li className=" flex flex-col justify-center items-center ">
                 <div className="triangle"></div>
